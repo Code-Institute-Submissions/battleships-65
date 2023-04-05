@@ -8,8 +8,10 @@ def main():
 
 def validate_grid_size(choice):
     try:
-        if choice != 5 or 8 or 10:
-            raise ValueError(f"Error. You chose {choice} Only values of 5, 8 and 10 are accepted\n")
+        if choice not in [5, 8 ,10]:
+            print(f"Choice of {choice} is invalid please choose a valid choice\n")
+        else:
+            confirm = input()
     except ValueError as e:
         print(f"You have chosen {choice}. This is invalid. Please try again\n")
 
