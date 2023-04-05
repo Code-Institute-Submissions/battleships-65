@@ -6,10 +6,11 @@ def main():
     user_choice = int(input("Grid size choice: "))
     validate_grid_size(user_choice)
 
+
 def validate_grid_size(choice):
     try:
         if choice not in [5, 8, 10]:
-            print(f"Choice of {choice} is invalid please choose a valid choice\n")
+            print(f"Choice of {choice} is invalid, please choose a valid choice\n")
         else:
             confirm = input(f"please confirm choice of {choice}, press Y to confirm ")
             if confirm in ["y", "Y", "Yes", "YES", "yes"]:
@@ -19,5 +20,6 @@ def validate_grid_size(choice):
                 main()
     except ValueError as e:
         print(f"{e} This choice is invalid. Please try again\n")
+
 
 main()
