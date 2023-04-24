@@ -85,6 +85,8 @@ A game over screen appears whenever a player sinks the required number of battle
 ## Credits
 
 ### Code
+[How to code battleship gameboard in python](https://www.youtube.com/watch?v=cwpS_ac8uk0&t=45s)
+The code used in this tutorial was adapted to write the display board function.
 
 ### Content
 

@@ -34,8 +34,6 @@ def display_board(game_board):
             print(game_board[letter][column], end=" ")
         letter += 1
         print("| ")
-
-
 game_board = []
 display_board(game_board)
 # main()
