@@ -24,12 +24,16 @@
 
 
 def display_board(game_board):
+    print("   1 2 3 4 5")
     for row in range(5):
-        game_board.append("-" * 10)
-    for letter in range(5):
-        print(chr(letter + 65))
-    print(game_board)
-    print(letter)
+        game_board.append("-" * 5)
+    letter = 0
+    for row in range(5):
+        print(chr(letter + 65), end=" |")
+        for column in range(len(game_board[letter])):
+            print(game_board[letter][column], end=" ")
+        letter += 1
+        print("| ")
 
 
 game_board = []
