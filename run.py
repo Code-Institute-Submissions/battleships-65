@@ -26,7 +26,10 @@
 def display_board(game_board):
     for row in range(5):
         game_board.append("-" * 10)
+    for letter in range(5):
+        print(chr(letter + 65))
     print(game_board)
+    print(letter)
 
 
 game_board = []
