@@ -38,7 +38,7 @@ The user grid is displayed showing the location of the user's battleships and th
 
 The user's score is displayed and incremented when a user sinks one of the computers battleships and vice versa. 
 
-A game over screen appears whenever a player sinks the required number of battleships ot the computer does.
+A game over screen appears whenever a player sinks the required number of battleships or the computer does.
 
 ## Accessibility
 
@@ -46,11 +46,11 @@ A game over screen appears whenever a player sinks the required number of battle
 [Python]()
 
 ## Frameworks, Libraries and Programs
-[LucidChart]()
+[LucidChart](https://www.lucidchart.com/pages/)
 - LucidChart was used to design the layout of the game and which functions would be required to run the game including areas where validation was in place.
-[Git]()
+[Git](https://www.gitpod.io/)
 - Gitpod was used for adding commits each time a new feature was added to the game and for pushing the commits to Github.
-[Github]()
+[Github](https://github.com/)
 - Github was used for storing the site after being pushed from gitpod.
 [Heroku]()
 - Heroku was used for deploying the website.
@@ -87,6 +87,8 @@ A game over screen appears whenever a player sinks the required number of battle
 ### Code
 [How to code battleship gameboard in python](https://www.youtube.com/watch?v=cwpS_ac8uk0&t=45s)
 The code used in this tutorial was adapted to write the display board function.
+[Battleship - ASCII Art](https://ascii.co.uk/art/battleship)
+This website was used to add a design feature of a battleship image to the welcome message at the beginning of the game. The image is display using several print statements.
 
 ### Content
 
