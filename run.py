@@ -55,7 +55,10 @@ def new_game():
 
 
 def make_guess():
-    input("Please make a choice")
+    print("Please make a choice")
+    print("Your choice must be a combination of a number and a letter")
+    player_guess = input("Your choice")
+    print(f"You have chosen {player_guess}")
 
 
 def main():
