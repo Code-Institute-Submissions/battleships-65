@@ -9,7 +9,8 @@ class Board:
     whether it is the computer or player board type
     The class has methods for adding ships and guesses
     """
-    def __init__(self,num_ships,name,type):
+    def __init__(self, num_ships, name, type):
+        self.board = x,y
         self.num_ships = num_ships
         self.name = name
         self.type = type
@@ -17,7 +18,14 @@ class Board:
         self.ships = []
 
     def guess(self, x, y):
-        self.guesses.append(x,y)
+        self.guesses.append((x, y))
+        self.board[x][y] = "X"
+
+        if (x,y) in self.ships:
+            self.board[x][y]= "*"
+            return "Hit"
+        else:
+            return "Miss"
 
 
 def main():
