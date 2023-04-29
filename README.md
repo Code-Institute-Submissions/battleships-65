@@ -27,6 +27,7 @@ This game is a single player game designed for users to compete against the comp
 The grids are designed to display in the center of screens with the positions allocated by a number and letter system. The grid size displayed depends on the users game choice.
 
 The functions and validation checks were planned and designed with lucidchart.
+
 ![Battelships lucid chart](assets/images/battleships-lucid-chart.PNG)
 
 ## Existing Features
@@ -46,12 +47,16 @@ A game over screen appears whenever a player sinks the required number of battle
 [Python]()
 
 ## Frameworks, Libraries and Programs
+
 [LucidChart](https://www.lucidchart.com/pages/)
 - LucidChart was used to design the layout of the game and which functions would be required to run the game including areas where validation was in place.
+
 [Git](https://www.gitpod.io/)
 - Gitpod was used for adding commits each time a new feature was added to the game and for pushing the commits to Github.
+
 [Github](https://github.com/)
 - Github was used for storing the site after being pushed from gitpod.
+
 [Heroku]()
 - Heroku was used for deploying the website.
 
@@ -85,10 +90,15 @@ A game over screen appears whenever a player sinks the required number of battle
 ## Credits
 
 ### Code
+
 [How to code battleship gameboard in python](https://www.youtube.com/watch?v=cwpS_ac8uk0&t=45s)
-The code used in this tutorial was adapted to write the display board function.
+The code used in this (Youtube)[https://www.youtube.com/] tutorial was adapted to write the display board function based on the user's choice of grid size.
+
 [Battleship - ASCII Art](https://ascii.co.uk/art/battleship)
-This website was used to add a design feature of a battleship image to the welcome message at the beginning of the game. The image is display using several print statements.
+This website was used to add a design feature of a battleship image to the welcome message at the beginning of the game. The image is displayed using several print statements.
+
+[Portfolio Project 3 Scope](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware/b3378fc1159e43e3b70916fdefdfae51/605f34e006594dc4ae19f5e60ec75e2e/)
+This video tutorial from the [Code Institute website](https://codeinstitute.net/ie/) was used and adapted to include the board class to the Battleships code to set the number of ships, the board type and provide methods to add ships to the player and computer boards and record the guesses made.
 
 ### Content
 
