@@ -30,21 +30,60 @@ class Board:
         else:
             return "Miss"
 
-        def add_ships(self, x, y):
-            self.ships.append((x, y))
-            if self.type == "player":
-                self.board[x][y] = "@"
+    def add_ships(self, x, y):
+        self.ships.append((x, y))
+        if self.type == "player":
+            self.board[x][y] = "@"
+
+
+def display_board(game_board):
+    """
+    This function displays the game board
+    The amount of numbers and letters displayed,
+    depend on the grid size chosen by the player
+    """
+    number_line = "   "
+    for index in range(board_size):
+        number_line += f"{index+1} "
+    print(number_line)
+    for row in range(board_size):
+        game_board.append("-" * board_size)
+    letter = 0
+    for row in range(board_size):
+        print(chr(letter + 65), end=" |")
+        for column in range(len(game_board[letter])):
+            print(game_board[letter][column], end=" ")
+        letter += 1
+        print("| ")
 
 
 def populate_board(board):
-    global computer_board
-    global player_board
+    """
+    This function assigns the position of
+    Computer and Player ships
+    """
     display_board(computer_board)
     display_board(player_board)
+    for x in range(board_size):
+        for y in range(board_size):
+            board.add_ships(x, y)
+
     make_guess()
 
 
+def make_guess():
+    print("Please make a choice")
+    print("Your choice must be a combination of a number and a letter")
+    player_guess = input("Your choice: ")
+    print(f"You have chosen {player_guess}")
+
+
 def new_game():
+    """
+    This function sets the number of ships to 5
+    Calls the board class to assign the required variables
+    to both the player and computer boards
+    """
     size = board_size
     num_ships = 5
     computer_board = Board(size, num_ships, "Computer", type="computer")
@@ -52,13 +91,6 @@ def new_game():
     for _ in range(num_ships):
         populate_board(player_board)
         populate_board(computer_board)
-
-
-def make_guess():
-    print("Please make a choice")
-    print("Your choice must be a combination of a number and a letter")
-    player_guess = input("Your choice")
-    print(f"You have chosen {player_guess}")
 
 
 def main():
@@ -109,22 +141,6 @@ def validate_grid_size(choice):
                 main()
     except ValueError as e:
         print(f"{e} This choice is invalid. Please try again\n")
-
-
-def display_board(game_board):
-    number_line = "   "
-    for index in range(board_size):
-        number_line += f"{index+1} "
-    print(number_line)
-    for row in range(board_size):
-        game_board.append("-" * board_size)
-    letter = 0
-    for row in range(board_size):
-        print(chr(letter + 65), end=" |")
-        for column in range(len(game_board[letter])):
-            print(game_board[letter][column], end=" ")
-        letter += 1
-        print("| ")
 
 
 main()
