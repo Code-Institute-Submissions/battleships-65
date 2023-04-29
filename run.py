@@ -25,6 +25,10 @@ game_state = "NAME_CHOICE"
 
 
 def main():
+    """
+    This function uses a while loop
+    to change between the menu and game
+    """
     while game_state == "NAME_CHOICE":
         play_game()
     while game_state == "PLAy_GAME":
@@ -167,7 +171,8 @@ def validate_grid_size(choice):
                 print("Thank you, the game will now commence")
                 new_game()
             else:
-                main()
+                global game_state
+                game_state = "PLAY_GAME"
     except ValueError as e:
         print(f"{e} This choice is invalid. Please try again\n")
 
