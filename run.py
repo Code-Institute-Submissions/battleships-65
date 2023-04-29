@@ -62,6 +62,11 @@ def make_guess():
 
 
 def main():
+    """
+    This function prints a welcome message
+    Requests input from the user for name
+    Requests for the user to choose a grid size
+    """
     print("Welcome to Battleships\n")
     print("                           |-._")
     print("                           |-._|")
@@ -83,6 +88,13 @@ def main():
 
 
 def validate_grid_size(choice):
+    """
+    This function validates the user's grid choice
+    If the user chooses a value that is not 5, 8 or 10
+    The user is requested to provide a valid choice
+    If the user chooses a valid choice
+    They are asked to confirm their choice and the game begins
+    """
     try:
         if choice not in [5, 8, 10]:
             print(f"Choice of {choice} is invalid, please choose a valid choice\n")
