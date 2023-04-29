@@ -41,7 +41,10 @@ def validate_grid_size(choice):
 
 
 def display_board(game_board):
-    print("   1 2 3 4 5 6 7 8 9 10")
+    number_line = "   "
+    for index in range(board_size):
+        number_line += f"{index+1} "
+    print(number_line)
     for row in range(board_size):
         game_board.append("-" * board_size)
     letter = 0
