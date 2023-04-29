@@ -1,5 +1,23 @@
 game_board = []
 board_size = 0
+scores = {"computer":0, "player":0}
+
+
+class Board:
+    """
+    Sets the number of ships, the name and 
+    whether it is the computer or player board type
+    The class has methods for adding ships and guesses
+    """
+    def __init__(self,num_ships,name,type):
+        self.num_ships = num_ships
+        self.name = name
+        self.type = type
+        self.guesses = []
+        self.ships = []
+
+    def guess(self, x, y):
+        self.guesses.append(x,y)
 
 
 def main():
