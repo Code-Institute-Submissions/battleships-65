@@ -1,7 +1,8 @@
 game_board = []
 board_size = 0
 scores = {"computer": 0, "player": 0}
-name = None
+computer_board = []
+player_board = []
 
 
 class Board:
@@ -35,10 +36,22 @@ class Board:
                 self.board[x][y] = "@"
 
 
-def populate_board():
-    display_board(game_board)
-    Board(board_size, 5, name, "player")
+def populate_board(board):
+    global computer_board
+    global player_board
+    display_board(computer_board)
+    display_board(player_board)
     make_guess()
+
+
+def new_game():
+    size = board_size
+    num_ships = 5
+    computer_board = Board(size, num_ships, "Computer", type="computer")
+    player_board = Board(size, num_ships, "Player", type="player")
+    for _ in range(num_ships):
+        populate_board(player_board)
+        populate_board(computer_board)
 
 
 def make_guess():
@@ -76,7 +89,7 @@ def validate_grid_size(choice):
                 global board_size
                 board_size = int(choice)
                 print("Thank you, the game will now commence")
-                populate_board()
+                new_game()
             else:
                 main()
     except ValueError as e:
