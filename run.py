@@ -27,6 +27,17 @@ class Board:
         else:
             return "Miss"
 
+        def add_ships(self, x, y):
+            self.ships.append((x,y))
+            if self.type = "player":
+                self.board[x][y] = "@"
+
+
+def populate_board():
+
+
+def make_guess():
+
 
 def main():
     print("Welcome to Battleships\n")
