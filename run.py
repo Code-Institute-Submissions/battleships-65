@@ -20,6 +20,15 @@ board_size = 0
 scores = {"computer": 0, "player": 0}
 computer_board = []
 player_board = []
+player_name = ""
+game_state = "NAME_CHOICE"
+
+
+def main():
+    while game_state == "NAME_CHOICE":
+        play_game()
+    while game_state == "PLAy_GAME":
+        display_board(game_board)
 
 
 class Board:
@@ -37,20 +46,22 @@ class Board:
         self.guesses = []
         self.ships = []
 
+
+    def add_ships(self, x, y):
+        self.ships.append((x, y))
+        if self.type == "player":
+            self.board[x][y] = "@"
+
+
     def guess(self, x, y):
         self.guesses.append((x, y))
-        self.board[x][y] = "X"
+        self.board[x][y] = "#"
 
         if (x, y) in self.ships:
             self.board[x][y] = "*"
             return "Hit"
         else:
             return "Miss"
-
-    def add_ships(self, x, y):
-        self.ships.append((x, y))
-        if self.type == "player":
-            self.board[x][y] = "@"
 
 
 def display_board(game_board):
@@ -110,11 +121,12 @@ def new_game():
         populate_board(computer_board)
 
 
-def main():
+def play_game():
     """
-    This function prints a welcome message
-    Requests input from the user for name
-    Requests for the user to choose a grid size
+    This function prints a welcome message and
+    ASCII Art is used to display a Battleship
+    Requests input from the user for name and
+    for the user to choose a grid size
     """
     print("Welcome to Battleships\n")
     print("                           |-._")
@@ -129,7 +141,7 @@ def main():
     print("  \\_______________________________________LE___________//")
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
-    input("Please enter your name: \n")
+    player_name = input("Please enter your name: \n")
     print("Please choose which grid you wish to play on\n")
     print("Grid sizes are 5, 8 or 10\n")
     user_choice = int(input("Grid size choice: "))
@@ -160,4 +172,4 @@ def validate_grid_size(choice):
         print(f"{e} This choice is invalid. Please try again\n")
 
 
-main()
+play_game()
