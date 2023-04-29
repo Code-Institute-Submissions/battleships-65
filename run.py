@@ -1,3 +1,14 @@
+"""
+Battleships
+How the game works
+1. The player chooses a 5x5, 8x8 or 10x10 grid
+2. Each grid has 5 battleships placed at random
+3. The player choose a row and column to choose to shoot
+4. For every shot that hits or misses this will be displayed in the grid
+5. If the player finds all the computer's ships first the players wins
+"""
+
+
 game_board = []
 board_size = 0
 scores = {"computer": 0, "player": 0}
