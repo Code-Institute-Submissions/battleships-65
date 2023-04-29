@@ -50,12 +50,10 @@ class Board:
         self.guesses = []
         self.ships = []
 
-
     def add_ships(self, x, y):
         self.ships.append((x, y))
         if self.type == "player":
             self.board[x][y] = "@"
-
 
     def guess(self, x, y):
         self.guesses.append((x, y))
@@ -104,6 +102,10 @@ def populate_board(board):
 
 
 def make_guess():
+    """
+    This function prompts the user to input a guess
+    The player must choose a number and a letter
+    """
     print("Please make a choice")
     print("Your choice must be a combination of a number and a letter")
     player_guess = input("Your choice: ")
@@ -119,7 +121,7 @@ def new_game():
     size = board_size
     num_ships = 5
     computer_board = Board(size, num_ships, "Computer", type="computer")
-    player_board = Board(size, num_ships, "Player", type="player")
+    player_board = Board(size, num_ships, player_name, type="player")
     for _ in range(num_ships):
         populate_board(player_board)
         populate_board(computer_board)
@@ -145,6 +147,7 @@ def play_game():
     print("  \\_______________________________________LE___________//")
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
+    global player_name
     player_name = input("Please enter your name: \n")
     print("Please choose which grid you wish to play on\n")
     print("Grid sizes are 5, 8 or 10\n")
