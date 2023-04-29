@@ -1,11 +1,17 @@
 """
 Battleships
-How the game works
+How the game works:
 1. The player chooses a 5x5, 8x8 or 10x10 grid
 2. Each grid has 5 battleships placed at random
 3. The player choose a row and column to choose to shoot
 4. For every shot that hits or misses this will be displayed in the grid
 5. If the player finds all the computer's ships first the players wins
+
+Legend:
+1. "-" = Water or empty space
+2. "#" = Water that was shot with a bullet, a miss as no ship was hit
+3. "*" = Ship that was hit
+4. "@" = Position of player ships
 """
 
 
