@@ -1,3 +1,7 @@
+game_board = []
+board_size = 0
+
+
 def main():
     print("Welcome to Battleships\n")
     print("                           |-._")
@@ -26,13 +30,10 @@ def validate_grid_size(choice):
         else:
             confirm = input(f"please confirm choice of {choice}, press Y to confirm ")
             if confirm in ["y", "Y", "Yes", "YES", "yes"]:
+                global board_size
+                board_size = int(choice)
                 print("Thank you, the game will now commence")
-                if choice == 5:
-                    display_board_5(game_board)
-                elif choice == 8:
-                    display_board_8(game_board)
-                elif choice == 10:
-                    display_board_10(game_board)
+                display_board(game_board)
             else:
                 main()
     except ValueError as e:
@@ -78,5 +79,4 @@ def display_board_10(game_board):
         print("| ")
 
 
-game_board = []
 main()
