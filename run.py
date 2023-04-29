@@ -1,16 +1,18 @@
 game_board = []
 board_size = 0
-scores = {"computer":0, "player":0}
+scores = {"computer": 0, "player": 0}
+name = None
 
 
 class Board:
     """
-    Sets the number of ships, the name and 
+    Sets the number of ships, the name and
     whether it is the computer or player board type
     The class has methods for adding ships and guesses
     """
-    def __init__(self, num_ships, name, type):
-        self.board = x,y
+    def __init__(self, size, num_ships, name, type):
+        self.size = size
+        self.board = [["-" for x in range(size)] for y in range(size)]
         self.num_ships = num_ships
         self.name = name
         self.type = type
@@ -21,22 +23,26 @@ class Board:
         self.guesses.append((x, y))
         self.board[x][y] = "X"
 
-        if (x,y) in self.ships:
-            self.board[x][y]= "*"
+        if (x, y) in self.ships:
+            self.board[x][y] = "*"
             return "Hit"
         else:
             return "Miss"
 
         def add_ships(self, x, y):
-            self.ships.append((x,y))
-            if self.type = "player":
+            self.ships.append((x, y))
+            if self.type == "player":
                 self.board[x][y] = "@"
 
 
 def populate_board():
+    display_board(game_board)
+    Board(board_size, 5, name, "player")
+    make_guess()
 
 
 def make_guess():
+    input("Please make a choice")
 
 
 def main():
@@ -48,9 +54,9 @@ def main():
     print("                 __  |____________|  __")
     print("             <=====| | |        | | |====>")
     print("       <=====| |.----------------------. | |====>")
-    print("\-------------' .  .  .  .  .  .  .  .  . '--------------/")
-    print(" \                                                      /")
-    print("  \_______________________________________LE___________/")
+    print("\\-------------' .  .  .  .  .  .  .  .  . '--------------//")
+    print(" \\                                                      //")
+    print("  \\_______________________________________LE___________//")
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     input("Please enter your name: \n")
@@ -70,7 +76,7 @@ def validate_grid_size(choice):
                 global board_size
                 board_size = int(choice)
                 print("Thank you, the game will now commence")
-                display_board(game_board)
+                populate_board()
             else:
                 main()
     except ValueError as e:
