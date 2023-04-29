@@ -40,38 +40,12 @@ def validate_grid_size(choice):
         print(f"{e} This choice is invalid. Please try again\n")
 
 
-def display_board_5(game_board):
-    print("   1 2 3 4 5")
-    for row in range(5):
-        game_board.append("-" * 5)
-    letter = 0
-    for row in range(5):
-        print(chr(letter + 65), end=" |")
-        for column in range(len(game_board[letter])):
-            print(game_board[letter][column], end=" ")
-        letter += 1
-        print("| ")
-
-
-def display_board_8(game_board):
-    print("   1 2 3 4 5 6 7 8")
-    for row in range(8):
-        game_board.append("-" * 8)
-    letter = 0
-    for row in range(8):
-        print(chr(letter + 65), end=" |")
-        for column in range(len(game_board[letter])):
-            print(game_board[letter][column], end=" ")
-        letter += 1
-        print("| ")
-
-
-def display_board_10(game_board):
+def display_board(game_board):
     print("   1 2 3 4 5 6 7 8 9 10")
-    for row in range(10):
-        game_board.append("-" * 10)
+    for row in range(board_size):
+        game_board.append("-" * board_size)
     letter = 0
-    for row in range(10):
+    for row in range(board_size):
         print(chr(letter + 65), end=" |")
         for column in range(len(game_board[letter])):
             print(game_board[letter][column], end=" ")
