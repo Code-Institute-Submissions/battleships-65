@@ -18,10 +18,10 @@ import random
 game_board = []
 board_size = 0
 scores = {"computer": 0, "player": 0}
-computer_board = []
-player_board = []
 player_name = ""
 game_state = "NAME_CHOICE"
+computer_board = []
+player_board = []
 
 
 def main():
@@ -31,7 +31,7 @@ def main():
     """
     while game_state == "NAME_CHOICE":
         play_game()
-    while game_state == "PLAy_GAME":
+    while game_state == "PLAY_GAME":
         display_board(game_board)
 
 
@@ -92,14 +92,14 @@ def generate_ships(board):
     This function assigns the position of
     Computer and Player ships
     """
-    for ship in range(5):
-        x, y = random.randint(0, 5), random.randint(0, 5)
-        while board[x][y] == "*":
-            x, y = random.randint(0, 5), random.randint(0, 5)
-        board[x][y] = "*"
+    # for ship in range(5):
+    #     x, y = random.randint(0, 5), random.randint(0, 5)
+    #     while board[x][y] == "*":
+    #         x, y = random.randint(0, 5), random.randint(0, 5)
+    #     board[x][y] = "*"
     # board.add_ships(x, y)
-    # display_board(computer_board)
-    # display_board(player_board)
+    display_board(computer_board)
+    display_board(player_board)
     make_guess()
 
 
@@ -109,7 +109,6 @@ def make_guess():
     The player must choose a number and a letter
     """
     print("Please make a row choice")
-    # print("Your choice must be a combination of a number and a letter")
     row_guess = input("Your row choice: ")
     # Include a try and except here in case user enters no data
     while row_guess not in "12345":
@@ -121,8 +120,6 @@ def make_guess():
         print("Please enter a valid column")
         column_guess = input("Your column guess: ")
     return int(row_guess), ord(column_guess)
-    
-    # print(f"You have chosen {player_guess}")
 
 
 def count_hit_ships(board):
@@ -203,3 +200,4 @@ def validate_grid_size(choice):
 
 
 play_game()
+main()
