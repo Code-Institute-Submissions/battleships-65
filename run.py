@@ -111,15 +111,15 @@ def make_guess():
     print("Please make a row choice")
     # print("Your choice must be a combination of a number and a letter")
     row_guess = input("Your row choice: ")
-    # Use try and except here in case user enters no data
+    # Include a try and except here in case user enters no data
     while row_guess not in [1, 2, 3, 4, 5]:
         print("Please enter a valid row")
         row_guess = input("Your row choice: ")
-    column_guess = input("Your column guess" )
-    while column_guess not in [A, B, C, D, E]:
+    column_guess = input("Your column guess:")
+    while column_guess not in ["A", "B", "C", "D", "E"]:
         print("Please enter a valid column")
-        column_guess = input("Your column guess" )
-    return int(row_guess), letters_to_numbers(column_guess)
+        column_guess = input("Your column guess: ")
+    return int(row_guess), ord(column_guess)
     
     # print(f"You have chosen {player_guess}")
 
