@@ -92,11 +92,14 @@ def populate_board(board):
     This function assigns the position of
     Computer and Player ships
     """
-    x = random.randint(0, board_size - 1)
-    y = random.randint(0, board_size - 1)
-    board.add_ships(x, y)
-    display_board(computer_board)
-    display_board(player_board)
+    for ship in range(5):
+        x, y = random.randint(0, 5), random.randint(0, 5)
+        while board[x][y] == "*":
+            x, y = random.randint(0, 5), random.randint(0, 5)
+        board[x][y] = "*"
+    # board.add_ships(x, y)
+    # display_board(computer_board)
+    # display_board(player_board)
     make_guess()
 
 
@@ -105,10 +108,20 @@ def make_guess():
     This function prompts the user to input a guess
     The player must choose a number and a letter
     """
-    print("Please make a choice")
-    print("Your choice must be a combination of a number and a letter")
-    player_guess = input("Your choice: ")
-    print(f"You have chosen {player_guess}")
+    print("Please make a row choice")
+    # print("Your choice must be a combination of a number and a letter")
+    row_guess = input("Your row choice: ")
+    # Use try and except here in case user enters no data
+    while row_guess not in [1, 2, 3, 4, 5]:
+        print("Please enter a valid row")
+        row_guess = input("Your row choice: ")
+    column_guess = input("Your column guess" )
+    while column_guess not in [A, B, C, D, E]:
+        print("Please enter a valid column")
+        column_guess = input("Your column guess" )
+    return int(row_guess), letters_to_numbers(column_guess)
+    
+    # print(f"You have chosen {player_guess}")
 
 
 def new_game():
