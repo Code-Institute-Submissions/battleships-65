@@ -100,6 +100,9 @@ This website was used to add a design feature of a battleship image to the welco
 [Portfolio Project 3 Scope](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware/b3378fc1159e43e3b70916fdefdfae51/605f34e006594dc4ae19f5e60ec75e2e/)
 This video tutorial from the [Code Institute website](https://codeinstitute.net/ie/) was used and adapted to include the board class to the Battleships code to set the number of ships, the board type and provide methods to add ships to the player and computer boards and record the guesses made.
 
+[How to Code Battleship in Python](https://www.google.com/search?q=how+to+add+ships+to+board+battleships+python&sxsrf=APwXEdfYaaektAri62hXOq5nohy7G7VoYg%3A1682935020230&source=hp&ei=7IxPZP7wC4nEgAbMoarwBg&iflsig=AOEireoAAAAAZE-a_Ii9CrjCHiZW0YvW6-WAWqcZxz-l&ved=0ahUKEwj-lrzA7dP-AhUJIsAKHcyQCm4Q4dUDCAk&uact=5&oq=how+to+add+ships+to+board+battleships+python&gs_lcp=Cgdnd3Mtd2l6EAMyCAghEBYQHhAdOgsIABCABBCxAxCDAToICAAQgAQQsQM6DgguEIAEELEDEMcBENEDOgsILhCABBDHARDRAzoLCC4QigUQsQMQgwE6BQguEIAEOgsIABCKBRCxAxCDAToFCAAQgAQ6CAguEIoFELEDOg4ILhCKBRCxAxDHARCvAToLCC4QgAQQsQMQ1AI6CAguEIAEENQCOggIABCKBRCGAzoFCCEQoAE6CgghEBYQHhAPEB06BggAEBYQHjoHCCEQoAEQCjoECCEQClAAWOM-YNxAaABwAHgBgAHCBYgBqEqSAQ80LjIyLjExLjIuMi4yLjGYAQCgAQE&sclient=gws-wiz#fpstate=ive&vld=cid:3353d00c,vid:tF1WRCrd_HQ,st:377)
+This [Youtube](youtube.com) tutorial was used and adapted to incorporate the count number of hit ships function into the Batteships game.
+
 [Python Intermediate Project Assignement](https://www.youtube.com/watch?v=MgJBgnsDcF0&t=534s)
 This [Youtube](https://www.youtube.com/) tutorial was watched for inspiration on the different designs a Battleships game can encorporate.
 
