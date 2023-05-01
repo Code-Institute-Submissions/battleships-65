@@ -87,7 +87,7 @@ def display_board(game_board):
         print("| ")
 
 
-def populate_board(board):
+def generate_ships(board):
     """
     This function assigns the position of
     Computer and Player ships
@@ -112,16 +112,26 @@ def make_guess():
     # print("Your choice must be a combination of a number and a letter")
     row_guess = input("Your row choice: ")
     # Include a try and except here in case user enters no data
-    while row_guess not in [1, 2, 3, 4, 5]:
+    while row_guess not in "12345":
         print("Please enter a valid row")
         row_guess = input("Your row choice: ")
+    print("Please make a column choice")
     column_guess = input("Your column guess:")
-    while column_guess not in ["A", "B", "C", "D", "E"]:
+    while column_guess not in "ABCDE":
         print("Please enter a valid column")
         column_guess = input("Your column guess: ")
     return int(row_guess), ord(column_guess)
     
     # print(f"You have chosen {player_guess}")
+
+
+def count_hit_ships(board):
+    count = 0
+    for row in board:
+        for col in row:
+            if col == "*":
+                count += 1
+    return count
 
 
 def new_game():
@@ -135,8 +145,8 @@ def new_game():
     computer_board = Board(size, num_ships, "Computer", type="computer")
     player_board = Board(size, num_ships, player_name, type="player")
     for _ in range(num_ships):
-        populate_board(player_board)
-        populate_board(computer_board)
+        generate_ships(player_board)
+        generate_ships(computer_board)
 
 
 def play_game():
