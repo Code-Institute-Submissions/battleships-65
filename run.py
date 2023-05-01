@@ -13,7 +13,7 @@ Legend:
 3. "*" = Ship that was hit
 4. "@" = Position of player ships
 """
-
+import random
 
 game_board = []
 board_size = 0
@@ -92,12 +92,11 @@ def populate_board(board):
     This function assigns the position of
     Computer and Player ships
     """
+    x = random.randint(0, board_size - 1)
+    y = random.randint(0, board_size - 1)
+    board.add_ships(x, y)
     display_board(computer_board)
     display_board(player_board)
-    for x in range(board_size):
-        for y in range(board_size):
-            board.add_ships(x, y)
-
     make_guess()
 
 
