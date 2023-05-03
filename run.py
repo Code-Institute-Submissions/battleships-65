@@ -180,23 +180,24 @@ def new_game():
     while True:
         guess_row = int(input("Guess Row: "))
         guess_col = int(input("Guess Column: "))
-        if game_board[guess_row][guess_col] != "-":
+        if computer_board.board[guess_row][guess_col] != "-":
             print("Hit")
-            game_board[guess_row][guess_col] = "X"
+            computer_board.board[guess_row][guess_col] = "#"
             turns += 1
             num_ships -= 1
             ship_sunk = True
-            for row in game_board:
-                if ship_sunk and game_board[guess_row][guess_col] in row:
+            for row in computer_board.board:
+                if ship_sunk and computer_board.board[guess_row][guess_col] in row:
                     ship_sunk = False
                     break
                 if ship_sunk:
                     print("You have sunk a ship")
         else:
             print("Miss")
-            game_board[guess_row][guess_col] = "O"
+            computer_board.board[guess_row][guess_col] = "O"
             turns += 1
-        display_board(game_board)
+        display_board(player_board)
+        display_board(computer_board)
         if num_ships == 0:
             print(f"Congratulations, you have sunk all ships in {turns} turns")
             break
