@@ -92,30 +92,30 @@ def generate_ships(board):
     This function assigns the position of
     Computer and Player ships
     """
-    # if board_size == 5:
-    #     for num_ships in range(5):
-    #         x, y = random.randint(0, 4), random.randint(0, 4)
-    #         while board[x][y] == "*":
-    #             x, y = random.randint(0, 4), random.randint(0, 4)
-    #         board[x][y] = "*"
-    # elif board_size == 8:
-    #     for num_ships in range(5):
-    #         x, y = random.randint(0, 7), random.randint(0, 7)
-    #         while board[x][y] == "*":
-    #             x, y = random.randint(0, 7), random.randint(0, 7)
-    #         board[x][y] = "*"
-    # elif board_size == 10:
-    #     for num_ships in range(5):
-    #         x, y = random.randint(0, 9), random.randint(0, 9)
-    #         while board[x][y] == "*":
-    #             x, y = random.randint(0, 9), random.randint(0, 9)
-    #         board[x][y] = "*"
-    # else:
-    #     print("Error")
+    if board_size == 5:
+        for num_ships in range(5):
+            x, y = random.randint(0, 4), random.randint(0, 4)
+            while board[x][y] == "*":
+                x, y = random.randint(0, 4), random.randint(0, 4)
+            board[x][y] = "*"
+    elif board_size == 8:
+        for num_ships in range(5):
+            x, y = random.randint(0, 7), random.randint(0, 7)
+            while board[x][y] == "*":
+                x, y = random.randint(0, 7), random.randint(0, 7)
+            board[x][y] = "*"
+    elif board_size == 10:
+        for num_ships in range(5):
+            x, y = random.randint(0, 9), random.randint(0, 9)
+            while board[x][y] == "*":
+                x, y = random.randint(0, 9), random.randint(0, 9)
+            board[x][y] = "*"
+    else:
+        print("Error")
     # board.add_ships(x, y)
-    display_board(computer_board)
-    display_board(player_board)
-    make_guess()
+    # display_board(computer_board)
+    # display_board(player_board)
+    # make_guess()
 
 
 def make_guess():
@@ -159,8 +159,9 @@ def new_game():
     for _ in range(num_ships):
         generate_ships(player_board)
         generate_ships(computer_board)
-        display_board(player_board)
-        display_board(computer_board)
+    display_board(player_board)
+    display_board(computer_board)
+    make_guess()
 
 
 def play_game():
