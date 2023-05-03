@@ -177,6 +177,13 @@ def new_game():
     display_board(computer_board)
     # make_guess()
     turns = 0
+    while True:
+        guess_row = int(input("Guess Row: "))
+        guess_col = int(input("Guess Column: "))
+        if board[guess_row][guess_col] != "-":
+            print("Hit")
+            board[guess_row][guess_col] = "X"
+            turns += 1
 
 
 def play_game():
