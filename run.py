@@ -9,7 +9,7 @@ How the game works:
 
 Legend:
 1. "-" = Water or empty space
-2. "#" = Water that was shot with a bullet, a miss as no ship was hit
+2. "O" = Water that was shot with a bullet, a miss as no ship was hit
 3. "*" = Ship that was hit
 4. "@" = Position of player ships
 """
@@ -39,9 +39,8 @@ def main():
 
 class Board:
     """
-    Sets the number of ships, the name and
-    whether it is the computer or player board type
-    The class has methods for adding ships and guesses
+    Sets the number of ships, the player name and board type
+    The class has a method for adding ships
     """
     def __init__(self, size, num_ships, name, type):
         self.size = size
@@ -49,13 +48,14 @@ class Board:
         self.num_ships = num_ships
         self.name = name
         self.type = type
-        self.guesses = []
         self.ships = []
 
     def add_ships(self, x, y):
         self.ships.append((x, y))
-        if self.type == "player":
+        if self.type == "player1":
             self.board[x][y] = "@"
+        elif self.type == "player2":
+            self.board[x][y] = "#"
 
     def make_guess(self, x, y):
         self.guesses.append((x, y))
@@ -185,7 +185,7 @@ def new_game():
         guess_row, guess_col = make_guess()
         if computer_board.board[guess_row][guess_col] != "-":
             print("Hit")
-            computer_board.board[guess_row][guess_col] = "#"
+            computer_board.board[guess_row][guess_col] = "*"
             turns += 1
             num_ships -= 1
             ship_sunk = True
