@@ -129,26 +129,27 @@ def generate_ships(board):
     # make_guess()
 
 
-def make_guess(board):
+def make_guess():
     """
     This function prompts the user to input a guess
     The player must choose a number and a letter
     """
     print("Please make a row choice")
-    row_guess = input("Your row choice: ")
+    row_guess = input("Your row choice (letter): ").upper()
     # Include a try and except here in case user enters no data
-    while row_guess not in "123456789":
+    while row_guess not in "ABCDEFGHI":
         print("Please enter a valid row")
-        row_guess = input("Your row choice: ")
+        row_guess = input("Your row choice (letter): ").upper()
     print("Please make a column choice")
-    column_guess = input("Your column guess:").upper()
-    while column_guess not in "ABCDEFGHI":
+    column_guess = input("Your column guess (number): ")
+    while column_guess not in "123456789":
         print("Please enter a valid column")
-        column_guess = input("Your column guess: ").upper()
+        column_guess = input("Your column guess (number): ")
     # x = int(row_guess) - 1
     # y = letters_to_numbers[column_guess]
-    # board.make_guess(x, y)
-    return int(row_guess) - 1, letters_to_numbers[column_guess]
+    # game_board.board.make_guess(x, y)
+    # return x, y
+    return letters_to_numbers[row_guess], int(column_guess) - 1
 
 
 def count_hit_ships(board):
@@ -178,8 +179,9 @@ def new_game():
     # make_guess()
     turns = 0
     while True:
-        guess_row = int(input("Guess Row: "))
-        guess_col = int(input("Guess Column: "))
+        # guess_row = int(input("Guess Row: "))
+        # guess_col = int(input("Guess Column: "))
+        guess_row, guess_col = make_guess()
         if computer_board.board[guess_row][guess_col] != "-":
             print("Hit")
             computer_board.board[guess_row][guess_col] = "#"
