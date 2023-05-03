@@ -184,11 +184,25 @@ def new_game():
             print("Hit")
             game_board[guess_row][guess_col] = "X"
             turns += 1
+            num_ships -= 1
             ship_sunk = True
             for row in game_board:
                 if ship_sunk and game_board[guess_row][guess_col] in row:
                     ship_sunk = False
                     break
+                if ship_sunk:
+                    print("You have sunk a ship")
+        else:
+            print("Miss")
+            game_board[guess_row][guess_col] = "O"
+            turns += 1
+        display_board(game_board)
+        if num_ships == 0:
+            print(f"Congratulations, you have sunk all ships in {turns} turns")
+            break
+        elif turns == 10:
+            print("Game Over. You have used all your turns")
+            break
 
 
 def play_game():
