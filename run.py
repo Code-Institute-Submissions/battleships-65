@@ -175,7 +175,8 @@ def new_game():
         generate_ships(computer_board)
     display_board(player_board)
     display_board(computer_board)
-    make_guess(board_size)
+    # make_guess()
+    turns = 0
 
 
 def play_game():
