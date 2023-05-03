@@ -57,20 +57,20 @@ class Board:
         elif self.type == "player2":
             self.board[x][y] = "#"
 
-    def make_guess(self, x, y):
-        self.guesses.append((x, y))
-        self.board[x][y] = "#"
+    # def make_guess(self, x, y):
+    #     self.guesses.append((x, y))
+    #     self.board[x][y] = "#"
 
-        if (x, y) in self.ships:
-            self.board[x][y] = "*"
-            return "Hit"
-        else:
-            return "Miss"
+    #     if (x, y) in self.ships:
+    #         self.board[x][y] = "*"
+    #         return "Hit"
+    #     else:
+    #         return "Miss"
 
 
 def display_board(game_board):
     """
-    This function displays the game board
+    This function displays the game board.
     The amount of numbers and letters displayed,
     depend on the grid size chosen by the player
     """
@@ -79,7 +79,7 @@ def display_board(game_board):
         number_line += f"{index+1} "
     print(number_line)
     for row in range(board_size):
-        game_board.board.append("-" * board_size)
+        game_board.board.append("~" * board_size)
     letter = 0
     for row in range(board_size):
         print(chr(letter + 65), end=" |")
@@ -91,8 +91,8 @@ def display_board(game_board):
 
 def generate_ships(board):
     """
-    This function assigns the position of
-    Computer and Player ships
+    This function assigns the position of the player ships
+    Includes an if/elif statement for the grid size chosen
     """
     # if board_size == 5:
     #     for num_ships in range(5):
@@ -133,9 +133,9 @@ def generate_ships(board):
 def make_guess():
     """
     This function prompts the user to input a guess
-    The player must choose a number and a letter
+    The player must choose a letter and a number
     """
-    print("Please make a row choice")
+    print("Please make a row choice (letter)")
     row_guess = input("Your row choice (letter): ").upper()
     # Include a try and except here in case user enters no data
     while row_guess not in "ABCDEFGHI":
@@ -166,41 +166,41 @@ def new_game():
     """
     This function sets the number of ships to 5
     Calls the board class to assign the required variables
-    to both the player and computer boards
+    to both player boards
     """
     size = board_size
     num_ships = 5
-    computer_board = Board(size, num_ships, "Computer", type="computer")
-    player_board = Board(size, num_ships, player_name, type="player")
+    player_one_board = Board(size, num_ships, player_two_name, type="player1")
+    player_two_board = Board(size, num_ships, player_name, type="player2")
     for _ in range(num_ships):
-        generate_ships(player_board)
-        generate_ships(computer_board)
-    display_board(player_board)
-    display_board(computer_board)
+        generate_ships(player_one_board)
+        generate_ships(player_two_board)
+    display_board(player_one_board)
+    display_board(player_two_board)
     # make_guess()
     turns = 0
     while True:
         # guess_row = int(input("Guess Row: "))
         # guess_col = int(input("Guess Column: "))
         guess_row, guess_col = make_guess()
-        if computer_board.board[guess_row][guess_col] != "-":
+        if player_two_board.board[guess_row][guess_col] != "-":
             print("Hit")
-            computer_board.board[guess_row][guess_col] = "*"
+            player_two_board.board[guess_row][guess_col] = "*"
             turns += 1
             num_ships -= 1
             ship_sunk = True
-            for row in computer_board.board:
-                if ship_sunk and computer_board.board[guess_row][guess_col] in row:
+            for row in player_two_board.board:
+                if ship_sunk and player_two_board.board[guess_row][guess_col] in row:
                     ship_sunk = False
                     break
                 if ship_sunk:
                     print("You have sunk a ship")
         else:
             print("Miss")
-            computer_board.board[guess_row][guess_col] = "O"
+            player_two_board.board[guess_row][guess_col] = "O"
             turns += 1
-        display_board(player_board)
-        display_board(computer_board)
+        display_board(player_one_board)
+        display_board(player_two_board)
         if num_ships == 0:
             print(f"Congratulations, you have sunk all ships in {turns} turns")
             break
@@ -229,8 +229,10 @@ def play_game():
     print("  \\_______________________________________LE___________//")
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
-    global player_name
-    player_name = input("Please enter your name: \n")
+    global player_one_name
+    global player_two_name
+    player_one_name = input("Player 1. Please enter your name: \n")
+    player_two_name = input("Player 2. Please enter your name: \n")
     print("Please choose which grid you wish to play on\n")
     print("Grid sizes are 5, 8 or 10\n")
     user_choice = int(input("Grid size choice: "))
@@ -240,9 +242,9 @@ def play_game():
 def validate_grid_size(choice):
     """
     This function validates the user's grid choice
-    If the user chooses a value that is not 5, 8 or 10
+    If the user chooses a value that is not 5, 8 or 10:
     The user is requested to provide a valid choice
-    If the user chooses a valid choice
+    If the user chooses a valid choice:
     They are asked to confirm their choice and the game begins
     """
     try:
