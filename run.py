@@ -180,10 +180,15 @@ def new_game():
     while True:
         guess_row = int(input("Guess Row: "))
         guess_col = int(input("Guess Column: "))
-        if board[guess_row][guess_col] != "-":
+        if game_board[guess_row][guess_col] != "-":
             print("Hit")
-            board[guess_row][guess_col] = "X"
+            game_board[guess_row][guess_col] = "X"
             turns += 1
+            ship_sunk = True
+            for row in game_board:
+                if ship_sunk and game_board[guess_row][guess_col] in row:
+                    ship_sunk = False
+                    break
 
 
 def play_game():
