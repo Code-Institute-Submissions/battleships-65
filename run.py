@@ -17,11 +17,12 @@ import random
 
 game_board = []
 board_size = 0
-scores = {"computer": 0, "player": 0}
-player_name = ""
+scores = {"player1": 0, "player2": 0}
+player_one_name = ""
+player_two_name = ""
 game_state = "NAME_CHOICE"
-computer_board = []
-player_board = []
+player_one_board = []
+player_two_board = []
 letters_to_numbers = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9}
 
 
