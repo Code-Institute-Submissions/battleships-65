@@ -77,12 +77,12 @@ def display_board(game_board):
         number_line += f"{index+1} "
     print(number_line)
     for row in range(board_size):
-        game_board.append("-" * board_size)
+        game_board.board.append("-" * board_size)
     letter = 0
     for row in range(board_size):
         print(chr(letter + 65), end=" |")
-        for column in range(len(game_board[letter])):
-            print(game_board[letter][column], end=" ")
+        for column in range(len(game_board.board[letter])):
+            print(game_board.board[letter][column], end=" ")
         letter += 1
         print("| ")
 
@@ -92,27 +92,37 @@ def generate_ships(board):
     This function assigns the position of
     Computer and Player ships
     """
+    # if board_size == 5:
+    #     for num_ships in range(5):
+    #         x, y = random.randint(0, 4), random.randint(0, 4)
+    #         while board[x][y] == "*":
+    #             x, y = random.randint(0, 4), random.randint(0, 4)
+    #         board[x][y] = "*"
+    # elif board_size == 8:
+    #     for num_ships in range(5):
+    #         x, y = random.randint(0, 7), random.randint(0, 7)
+    #         while board[x][y] == "*":
+    #             x, y = random.randint(0, 7), random.randint(0, 7)
+    #         board[x][y] = "*"
+    # elif board_size == 10:
+    #     for num_ships in range(5):
+    #         x, y = random.randint(0, 9), random.randint(0, 9)
+    #         while board[x][y] == "*":
+    #             x, y = random.randint(0, 9), random.randint(0, 9)
+    #         board[x][y] = "*"
+    # else:
+    #     print("Error")
     if board_size == 5:
-        for num_ships in range(5):
-            x, y = random.randint(0, 4), random.randint(0, 4)
-            while board[x][y] == "*":
-                x, y = random.randint(0, 4), random.randint(0, 4)
-            board[x][y] = "*"
+        x, y = random.randint(0, 4), random.randint(0, 4)
+        board.add_ships(x, y)
     elif board_size == 8:
-        for num_ships in range(5):
-            x, y = random.randint(0, 7), random.randint(0, 7)
-            while board[x][y] == "*":
-                x, y = random.randint(0, 7), random.randint(0, 7)
-            board[x][y] = "*"
+        x, y = random.randint(0, 7), random.randint(0, 7)
+        board.add_ships(x, y)
     elif board_size == 10:
-        for num_ships in range(5):
-            x, y = random.randint(0, 9), random.randint(0, 9)
-            while board[x][y] == "*":
-                x, y = random.randint(0, 9), random.randint(0, 9)
-            board[x][y] = "*"
+        x, y = random.randint(0, 9), random.randint(0, 9)
+        board.add_ships(x, y)
     else:
         print("Error")
-    # board.add_ships(x, y)
     # display_board(computer_board)
     # display_board(player_board)
     # make_guess()
