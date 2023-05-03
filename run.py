@@ -153,13 +153,13 @@ def make_guess():
     return letters_to_numbers[row_guess], int(column_guess) - 1
 
 
-def count_hit_ships(board):
-    count = 0
-    for row in board:
-        for col in row:
-            if col == "*":
-                count += 1
-    return count
+# def count_hit_ships(board):
+#     count = 0
+#     for row in board:
+#         for col in row:
+#             if col == "*":
+#                 count += 1
+#     return count
 
 
 def new_game():
@@ -170,8 +170,8 @@ def new_game():
     """
     size = board_size
     num_ships = 5
-    player_one_board = Board(size, num_ships, player_two_name, type="player1")
-    player_two_board = Board(size, num_ships, player_name, type="player2")
+    player_one_board = Board(size, num_ships, player_one_name, type="player1")
+    player_two_board = Board(size, num_ships, player_two_name, type="player2")
     for _ in range(num_ships):
         generate_ships(player_one_board)
         generate_ships(player_two_board)
