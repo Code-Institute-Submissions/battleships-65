@@ -171,21 +171,21 @@ def new_game():
         # generate_ships(player_two_board)
     # counter = 0
     # if counter % 2 == 0:
-    #     display_board(player_two_board)
+    display_board(guess_board)
     # else:
     #     display_board(player_one_board)
     # counter += 1
-    turns = 0
+    turns = 10
     while True:
         guess_row, guess_col = make_guess()
         if hidden_board.board[guess_row][guess_col] != "-":
             print("Hit")
             guess_board.board[guess_row][guess_col] = "*"
-            turns += 1
+            turns -= 1
             num_ships -= 1
             ship_sunk = True
             for row in guess_board.board:
-                if ship_sunk and hidden_board.board[guess_row][guess_col] in row:
+                if ship_sunk and guess_board.board[guess_row][guess_col] in row:
                     ship_sunk = False
                     break
                 if ship_sunk:
@@ -193,13 +193,13 @@ def new_game():
         else:
             print("Miss")
             guess_board.board[guess_row][guess_col] = "O"
-            turns += 1
+            turns -= 1
         # display_board(hidden_board)
         display_board(guess_board)
         if num_ships == 0:
             print(f"Congratulations, you have sunk all ships in {turns} turns")
             break
-        elif turns == 10:
+        elif turns == 0:
             print("Game Over. You have used all your turns")
             break
 
@@ -226,7 +226,7 @@ def play_game():
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     global player_name
     player_name = input("Please enter your name: \n")
-    print(f"{player_name}, please choose which grid you wish to play on \n")
+    print(f"Welcome {player_name}, please choose which grid you wish to play on \n")
     print("Grid sizes are 5, 8 or 10 \n")
     user_choice = int(input("Grid size choice: \n"))
     validate_grid_size(user_choice)
