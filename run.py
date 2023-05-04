@@ -175,9 +175,12 @@ def new_game():
     for _ in range(num_ships):
         generate_ships(player_one_board)
         generate_ships(player_two_board)
-    display_board(player_one_board)
-    display_board(player_two_board)
-    # make_guess()
+    counter = 0
+    if counter % 2 == 0:
+        display_board(player_two_board)
+    else:
+        display_board(player_one_board)
+    counter += 1
     turns = 0
     while True:
         # guess_row = int(input("Guess Row: "))
