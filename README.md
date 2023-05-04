@@ -31,20 +31,18 @@ The functions and validation checks were planned and designed with lucidchart.
 ![Battelships lucid chart](assets/images/battleships-lucid-chart.PNG)
 
 ## Existing Features
-The user is welcomed to the game where a short explanation is provided on how to play the game
+The user is welcomed to the game where a short explanation is provided on how to play the game. ASCII Art is used in the welcome message to provide a more aethetically pleasing introduction to the game.
 
-The user is requested that they input their username and choose the grid size they wish to play.
+The user is requested that they input their username and choose the grid size they wish to play. This provides users with the opportunity of changing the level of difficulty of the game.
 
-The user grid is displayed showing the location of the user's battleships and the computers board is displayed. A prompt is issued to the user to choose a position. Validation is in place here so only numbers and letters can be used.
+The guess board grid is displayed. The hidden board has the location of the user's battleships but these are not displayed. A prompt is issued to the user to choose a row position and column position. Validation is in place here so only numbers and letters can be used.
 
-The user's score is displayed and incremented when a user sinks one of the computers battleships and vice versa. 
+The user's turn number is recorded and decreased when a user makes a guess.
 
-A game over screen appears whenever a player sinks the required number of battleships or the computer does.
-
-## Accessibility
+A congratulations screen appears whenever a player sinks the required number of battleships or a game over screen is displayed when the user runs out of turns.
 
 ## Languages
-[Python]()
+[Python](https://en.wikipedia.org/wiki/Python)
 
 ## Frameworks, Libraries and Programs
 
@@ -57,13 +55,16 @@ A game over screen appears whenever a player sinks the required number of battle
 [Github](https://github.com/)
 - Github was used for storing the site after being pushed from gitpod.
 
-[Heroku]()
+[Heroku](https://heroku.com/)
 - Heroku was used for deploying the website.
+
+[youtube](https://www.youtube.com/)
+- Youtube was used during all stages of project development to gain insight into the background of the battleships game and different methods employed by developers to code a battleships game.
 
 ## Future Features
 - I would like to provide users with the opportunity for choosing the number of missiles/turns and the number of ships.
 - I would like to have make the game a two player game where the first player to sink the generated ships would win.
-- I would like to provide a random variable to change the size of the hidden ships on the board and include the ships' orientation.
+- I would like to provide a random variable to change the size of the hidden ships on the board and include the ships' orientation similar to the design in the Python Intermediate Project Assignment youtube tutorial.
 
 ## Validation & Testing
 [PEP8 Python Validator](https://pep8ci.herokuapp.com/)
