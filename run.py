@@ -18,11 +18,10 @@ import random
 game_board = []
 board_size = 0
 scores = {"player1": 0, "player2": 0}
-player_one_name = ""
-player_two_name = ""
+player_name = ""
 game_state = "NAME_CHOICE"
-player_one_board = []
-player_two_board = []
+hidden_board = []
+guess_board = []
 letters_to_numbers = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9}
 
 
@@ -42,6 +41,7 @@ class Board:
     Sets the number of ships, the player name and board type
     The class has a method for adding ships
     """
+    # The Board class was adapted from the Project 3 Scope tutorial
     def __init__(self, size, num_ships, name, type):
         self.size = size
         self.board = [["-" for x in range(size)] for y in range(size)]
@@ -52,20 +52,10 @@ class Board:
 
     def add_ships(self, x, y):
         self.ships.append((x, y))
-        if self.type == "player1":
+        if self.type == "hidden":
             self.board[x][y] = "@"
-        elif self.type == "player2":
-            self.board[x][y] = "#"
-
-    # def make_guess(self, x, y):
-    #     self.guesses.append((x, y))
-    #     self.board[x][y] = "#"
-
-    #     if (x, y) in self.ships:
-    #         self.board[x][y] = "*"
-    #         return "Hit"
-    #     else:
-    #         return "Miss"
+        # elif self.type == "player2":
+        #     self.board[x][y] = "#"
 
 
 def display_board(game_board):
@@ -174,38 +164,38 @@ def new_game():
     """
     size = board_size
     num_ships = 5
-    player_one_board = Board(size, num_ships, player_one_name, type="player1")
-    player_two_board = Board(size, num_ships, player_two_name, type="player2")
+    hidden_board = Board(size, num_ships, player_name, type="hidden")
+    guess_board = Board(size, num_ships, player_name, type="guess")
     for _ in range(num_ships):
-        generate_ships(player_one_board)
-        generate_ships(player_two_board)
-    counter = 0
-    if counter % 2 == 0:
-        display_board(player_two_board)
-    else:
-        display_board(player_one_board)
-    counter += 1
+        generate_ships(hidden_board)
+        # generate_ships(player_two_board)
+    # counter = 0
+    # if counter % 2 == 0:
+    #     display_board(player_two_board)
+    # else:
+    #     display_board(player_one_board)
+    # counter += 1
     turns = 0
     while True:
         guess_row, guess_col = make_guess()
-        if player_two_board.board[guess_row][guess_col] != "-":
+        if hidden_board.board[guess_row][guess_col] != "-":
             print("Hit")
-            player_two_board.board[guess_row][guess_col] = "*"
+            guess_board.board[guess_row][guess_col] = "*"
             turns += 1
             num_ships -= 1
             ship_sunk = True
-            for row in player_two_board.board:
-                if ship_sunk and player_two_board.board[guess_row][guess_col] in row:
+            for row in guess_board.board:
+                if ship_sunk and hidden_board.board[guess_row][guess_col] in row:
                     ship_sunk = False
                     break
                 if ship_sunk:
                     print("You have sunk a ship")
         else:
             print("Miss")
-            player_two_board.board[guess_row][guess_col] = "O"
+            guess_board.board[guess_row][guess_col] = "O"
             turns += 1
-        display_board(player_one_board)
-        display_board(player_two_board)
+        # display_board(hidden_board)
+        display_board(guess_board)
         if num_ships == 0:
             print(f"Congratulations, you have sunk all ships in {turns} turns")
             break
@@ -234,13 +224,9 @@ def play_game():
     print("  \\_______________________________________LE___________//")
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
-    global player_one_name
-    global player_two_name
-    player_one_name = input("Please enter your name: \n")
-    print(f"{player_one_name}, you are player 1")
-    player_two_name = input("Please enter your name: \n")
-    print(f"{player_two_name}, you are player 2")
-    print("Please choose which grid you wish to play on \n")
+    global player_name
+    player_name = input("Please enter your name: \n")
+    print(f"{player_name}, please choose which grid you wish to play on \n")
     print("Grid sizes are 5, 8 or 10 \n")
     user_choice = int(input("Grid size choice: \n"))
     validate_grid_size(user_choice)
