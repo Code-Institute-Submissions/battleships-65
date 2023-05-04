@@ -114,18 +114,17 @@ def generate_ships(board):
     #         board[x][y] = "*"
     # else:
     #     print("Error")
-    for ship in range(5):
-        if board_size == 5:
-            x, y = random.randint(0, 4), random.randint(0, 4)
-            board.add_ships(x, y)
-        elif board_size == 8:
-            x, y = random.randint(0, 7), random.randint(0, 7)
-            board.add_ships(x, y)
-        elif board_size == 10:
-            x, y = random.randint(0, 9), random.randint(0, 9)
-            board.add_ships(x, y)
-        else:
-            print("Error")
+    if board_size == 5:
+        x, y = random.randint(0, 4), random.randint(0, 4)
+        board.add_ships(x, y)
+    elif board_size == 8:
+        x, y = random.randint(0, 7), random.randint(0, 7)
+        board.add_ships(x, y)
+    elif board_size == 10:
+        x, y = random.randint(0, 9), random.randint(0, 9)
+        board.add_ships(x, y)
+    else:
+        print("Error")
     # display_board(computer_board)
     # display_board(player_board)
     # make_guess()
@@ -136,17 +135,21 @@ def make_guess():
     This function prompts the user to input a guess
     The player must choose a letter and a number
     """
+    # Code adapted from How to Code Battleships in Python
     print("Please make a row choice (letter)")
     row_guess = input("Your row choice (letter): \n").upper()
     # Include a try and except here in case user enters no data
-    while row_guess not in "ABCDEFGHI":
-        print("Please enter a valid row")
-        row_guess = input("Your row choice (letter): \n").upper()
-    print("Please make a column choice")
-    column_guess = input("Your column guess (number): \n")
-    while column_guess not in "123456789":
-        print("Please enter a valid column")
+    try:
+        while row_guess not in "ABCDEFGHI":
+            print("Please enter a valid row")
+            row_guess = input("Your row choice (letter): \n").upper()
+        print("Please make a column choice")
         column_guess = input("Your column guess (number): \n")
+        while column_guess not in "123456789":
+            print("Please enter a valid column")
+            column_guess = input("Your column guess (number): \n")
+    except ValueError as e:
+        print(f"{e} Please enter a valid choice. Please try again\n")   
     # x = int(row_guess) - 1
     # y = letters_to_numbers[column_guess]
     # game_board.board.make_guess(x, y)
