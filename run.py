@@ -163,7 +163,12 @@ def new_game():
     to both player boards
     """
     size = board_size
-    num_ships = 5
+    if board_size == 5:
+        num_ships = 5
+    elif board_size == 8:
+        num_ships = 12
+    elif board_size == 10:
+        num_ships = 20
     hidden_board = Board(size, num_ships, player_name, type="hidden")
     guess_board = Board(size, num_ships, player_name, type="guess")
     for _ in range(num_ships):
