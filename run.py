@@ -231,8 +231,10 @@ def play_game():
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     global player_one_name
     global player_two_name
-    player_one_name = input("Player 1. Please enter your name: \n")
-    player_two_name = input("Player 2. Please enter your name: \n")
+    player_one_name = input("Please enter your name: \n")
+    print(f"{player_one_name}, you are player 1")
+    player_two_name = input("Please enter your name: \n")
+    print(f"{player_two_name}, you are player 2")
     print("Please choose which grid you wish to play on\n")
     print("Grid sizes are 5, 8 or 10\n")
     user_choice = int(input("Grid size choice: "))
