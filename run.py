@@ -136,16 +136,16 @@ def make_guess():
     The player must choose a letter and a number
     """
     print("Please make a row choice (letter)")
-    row_guess = input("Your row choice (letter): ").upper()
+    row_guess = input("Your row choice (letter): \n").upper()
     # Include a try and except here in case user enters no data
     while row_guess not in "ABCDEFGHI":
         print("Please enter a valid row")
-        row_guess = input("Your row choice (letter): ").upper()
+        row_guess = input("Your row choice (letter): \n").upper()
     print("Please make a column choice")
-    column_guess = input("Your column guess (number): ")
+    column_guess = input("Your column guess (number): \n")
     while column_guess not in "123456789":
         print("Please enter a valid column")
-        column_guess = input("Your column guess (number): ")
+        column_guess = input("Your column guess (number): \n")
     # x = int(row_guess) - 1
     # y = letters_to_numbers[column_guess]
     # game_board.board.make_guess(x, y)
@@ -183,8 +183,6 @@ def new_game():
     counter += 1
     turns = 0
     while True:
-        # guess_row = int(input("Guess Row: "))
-        # guess_col = int(input("Guess Column: "))
         guess_row, guess_col = make_guess()
         if player_two_board.board[guess_row][guess_col] != "-":
             print("Hit")
@@ -238,9 +236,9 @@ def play_game():
     print(f"{player_one_name}, you are player 1")
     player_two_name = input("Please enter your name: \n")
     print(f"{player_two_name}, you are player 2")
-    print("Please choose which grid you wish to play on\n")
-    print("Grid sizes are 5, 8 or 10\n")
-    user_choice = int(input("Grid size choice: "))
+    print("Please choose which grid you wish to play on \n")
+    print("Grid sizes are 5, 8 or 10 \n")
+    user_choice = int(input("Grid size choice: \n"))
     validate_grid_size(user_choice)
 
 
@@ -256,7 +254,7 @@ def validate_grid_size(choice):
         if choice not in [5, 8, 10]:
             print(f"Choice of {choice} is invalid, please choose a valid choice\n")
         else:
-            confirm = input(f"please confirm choice of {choice}, press Y to confirm ")
+            confirm = input(f"please confirm choice of {choice}, press Y to confirm \n")
             if confirm in ["y", "Y", "Yes", "YES", "yes"]:
                 global board_size
                 board_size = int(choice)
