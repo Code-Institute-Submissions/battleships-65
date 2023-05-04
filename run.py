@@ -130,12 +130,12 @@ def make_guess():
     row_guess = input("Your row choice (letter): \n").upper()
     # Include a try and except here in case user enters no data
     try:
-        while row_guess not in "ABCDEFGHI":
+        while row_guess not in "ABCDEFGHIJ":
             print("Please enter a valid row")
             row_guess = input("Your row choice (letter): \n").upper()
         print("Please make a column choice")
         column_guess = input("Your column guess (number): \n")
-        while column_guess not in "123456789":
+        while column_guess not in "12345678910":
             print("Please enter a valid column")
             column_guess = input("Your column guess (number): \n")
     except ValueError as e:
@@ -175,7 +175,12 @@ def new_game():
     # else:
     #     display_board(player_one_board)
     # counter += 1
-    turns = 10
+    if board_size == 5:
+        turns = 10
+    elif board_size == 8:
+        turns = 15
+    elif board_size == 10:
+        turns = 20
     while True:
         guess_row, guess_col = make_guess()
         if hidden_board.board[guess_row][guess_col] != "-":
