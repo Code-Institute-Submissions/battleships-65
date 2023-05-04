@@ -114,17 +114,18 @@ def generate_ships(board):
     #         board[x][y] = "*"
     # else:
     #     print("Error")
-    if board_size == 5:
-        x, y = random.randint(0, 4), random.randint(0, 4)
-        board.add_ships(x, y)
-    elif board_size == 8:
-        x, y = random.randint(0, 7), random.randint(0, 7)
-        board.add_ships(x, y)
-    elif board_size == 10:
-        x, y = random.randint(0, 9), random.randint(0, 9)
-        board.add_ships(x, y)
-    else:
-        print("Error")
+    for ship in range(5):
+        if board_size == 5:
+            x, y = random.randint(0, 4), random.randint(0, 4)
+            board.add_ships(x, y)
+        elif board_size == 8:
+            x, y = random.randint(0, 7), random.randint(0, 7)
+            board.add_ships(x, y)
+        elif board_size == 10:
+            x, y = random.randint(0, 9), random.randint(0, 9)
+            board.add_ships(x, y)
+        else:
+            print("Error")
     # display_board(computer_board)
     # display_board(player_board)
     # make_guess()
