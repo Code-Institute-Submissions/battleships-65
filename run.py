@@ -2,22 +2,22 @@
 Battleships
 How the game works:
 1. The player chooses a 5x5, 8x8 or 10x10 grid
-2. Each grid has 5 battleships placed at random
-3. The player choose a row and column to choose to shoot
-4. For every shot that hits or misses this will be displayed in the grid
-5. If the player finds all the computer's ships first the players wins
+2. Each grid has battleships placed at random
+3. The number of battleships varies depending on the grid size
+4. The player choose a row and column to choose to shoot
+5. For every shot that hits or misses this will be displayed in the grid
+6. If the player finds all the hidden ships within the set turns the players wins
 
 Legend:
 1. "-" = Water or empty space
 2. "O" = Water that was shot with a bullet, a miss as no ship was hit
 3. "*" = Ship that was hit
-4. "@" = Position of player ships
+4. "@" = Position of player ships on the hidden board
 """
 import random
 
 game_board = []
 board_size = 0
-scores = {"player1": 0, "player2": 0}
 player_name = ""
 game_state = "NAME_CHOICE"
 hidden_board = []
@@ -38,10 +38,10 @@ def main():
 
 class Board:
     """
-    Sets the number of ships, the player name and board type
+    Sets the number of ships, the board name and board type
     The class has a method for adding ships
     """
-    # The Board class was adapted from the Project 3 Scope tutorial
+    # The Board class was adapted from the Code Institute Project 3 Scope tutorial
     def __init__(self, size, num_ships, name, type):
         self.size = size
         self.board = [["-" for x in range(size)] for y in range(size)]
@@ -54,8 +54,6 @@ class Board:
         self.ships.append((x, y))
         if self.type == "hidden":
             self.board[x][y] = "@"
-        # elif self.type == "player2":
-        #     self.board[x][y] = "#"
 
 
 def display_board(game_board):
@@ -64,6 +62,7 @@ def display_board(game_board):
     The amount of numbers and letters displayed,
     depend on the grid size chosen by the player
     """
+    # The display_board function code was adapted from the print_board function from the How to Code Battleship in python tutorial
     number_line = "   "
     for index in range(board_size):
         number_line += f"{index+1} "
@@ -82,28 +81,9 @@ def display_board(game_board):
 def generate_ships(board):
     """
     This function assigns the position of the player ships
+    by accessing the Board class add_ships method.
     Includes an if/elif statement for the grid size chosen
     """
-    # if board_size == 5:
-    #     for num_ships in range(5):
-    #         x, y = random.randint(0, 4), random.randint(0, 4)
-    #         while board[x][y] == "*":
-    #             x, y = random.randint(0, 4), random.randint(0, 4)
-    #         board[x][y] = "*"
-    # elif board_size == 8:
-    #     for num_ships in range(5):
-    #         x, y = random.randint(0, 7), random.randint(0, 7)
-    #         while board[x][y] == "*":
-    #             x, y = random.randint(0, 7), random.randint(0, 7)
-    #         board[x][y] = "*"
-    # elif board_size == 10:
-    #     for num_ships in range(5):
-    #         x, y = random.randint(0, 9), random.randint(0, 9)
-    #         while board[x][y] == "*":
-    #             x, y = random.randint(0, 9), random.randint(0, 9)
-    #         board[x][y] = "*"
-    # else:
-    #     print("Error")
     if board_size == 5:
         x, y = random.randint(0, 4), random.randint(0, 4)
         board.add_ships(x, y)
@@ -115,20 +95,17 @@ def generate_ships(board):
         board.add_ships(x, y)
     else:
         print("Error")
-    # display_board(computer_board)
-    # display_board(player_board)
-    # make_guess()
 
 
 def make_guess():
     """
     This function prompts the user to input a guess
     The player must choose a letter and a number
+    The letter and number chosen are returned
     """
-    # Code adapted from How to Code Battleships in Python
+    # Code adapted from How to Code Battleships in Python tutorial
     print("Please make a row choice (letter)")
     row_guess = input("Your row choice (letter): \n").upper()
-    # Include a try and except here in case user enters no data
     try:
         while row_guess not in "ABCDEFGHIJ":
             print("Please enter a valid row")
@@ -140,27 +117,14 @@ def make_guess():
             column_guess = input("Your column guess (number): \n")
     except ValueError as e:
         print(f"{e} Please enter a valid choice. Please try again\n")   
-    # x = int(row_guess) - 1
-    # y = letters_to_numbers[column_guess]
-    # game_board.board.make_guess(x, y)
-    # return x, y
     return letters_to_numbers[row_guess], int(column_guess) - 1
-
-
-# def count_hit_ships(board):
-#     count = 0
-#     for row in board:
-#         for col in row:
-#             if col == "*":
-#                 count += 1
-#     return count
 
 
 def new_game():
     """
-    This function sets the number of ships to 5
+    This function sets the number of ships depending on grid size
     Calls the board class to assign the required variables
-    to both player boards
+    to both hidden and guess boards
     """
     size = board_size
     if board_size == 5:
@@ -173,19 +137,13 @@ def new_game():
     guess_board = Board(size, num_ships, player_name, type="guess")
     for _ in range(num_ships):
         generate_ships(hidden_board)
-        # generate_ships(player_two_board)
-    # counter = 0
-    # if counter % 2 == 0:
     display_board(guess_board)
-    # else:
-    #     display_board(player_one_board)
-    # counter += 1
     if board_size == 5:
-        turns = 10
-    elif board_size == 8:
         turns = 15
+    elif board_size == 8:
+        turns = 25
     elif board_size == 10:
-        turns = 20
+        turns = 30
     while True:
         guess_row, guess_col = make_guess()
         if hidden_board.board[guess_row][guess_col] != "-":
@@ -204,7 +162,6 @@ def new_game():
             print("Miss")
             guess_board.board[guess_row][guess_col] = "O"
             turns -= 1
-        # display_board(hidden_board)
         display_board(guess_board)
         if num_ships == 0:
             print(f"Congratulations, you have sunk all ships in {turns} turns")
