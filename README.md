@@ -86,6 +86,24 @@ A game over screen appears whenever a player sinks the required number of battle
 ## Deployment
 
 ### Instructions
+1. Login to [Heroku](heroku.com)
+2. Click "Create a new app" on the Heroku dashboard
+3. Enter a unique app name and select a region
+4. Click the ![settings tab](assets/images/heroku-settings.png)
+5. Click reveal config vars and add the key PORT and the value 8000 to the ![key and port fields](assets/images/heroku-config-var.PNG)
+6. Click "Add buildpack" and select Python and "Save Changes".
+![](assets/images/add-buildpack.PNG)
+![](assets/images/add-buildpack-python.PNG)
+7. Click "Add buildpack again and select Nodejs and "Save changes
+![](assets/images/add-buildpack-nodejs.PNG)
+Note the order here is important.
+8. Click the Deploy tab and select GitHub as the deployment method and click connect to Github
+![](assets/images/heroku-deployment-method.PNG)
+9. Enter the Github repository by name and click search
+10. Once the repository is shown click connect
+11. Click deploy branch and wait for the message to appear stating ![](assets/images/heroku-app-deployed.PNG)
+12. Click to view button to navigate to the deployed link
+
 
 ## Credits
 
