@@ -72,37 +72,49 @@ A game over screen appears whenever a player sinks the required number of battle
 ## Testing on Browsers and Devices
 
 ### Browser Testing
+The deployed game was tested on Google Chrome and Internet Explorer.
+- The layout and positioning are consistent.
+- The validation for a user choosing an invalid grid size operates
+- The validation for the user entering valid row and column guesses is working effectively.
 
 ### Device Testing
+The deployed game was tested on a variety of devices including desktop, HP laptop, Samsung Galaxy A12, A13, A22, S8, iPhone13, iPhone SE2 and Redmi 2201117TY. Family members were asked to access the deployed site, play the game and highlight any issues with the print statements, displaying the board and guesses.
 
 ### Lighthouse Testing
+I carried out a Lighthouse test using the Google Chrome Lighthouse function for desktop and mobile.
 
 ## Bugs
 
 ### Solved Bugs
 
 ### Unsolved Bugs
+iPhone device users had trouble accessing and playing the deployed Battleships game. The game was tested on the iPhone SE2 and iPhone 13.
+On iPhone when the input requests the user to enter their name and iPhone users click return the f string does not print to the user.
+![iPhone13]()
 
 ## Deployment
+Heroku was used to deploy the battleships game.
 
 ### Instructions
-1. Login to [Heroku](heroku.com)
-2. Click "Create a new app" on the Heroku dashboard
-3. Enter a unique app name and select a region
-4. Click the ![settings tab](assets/images/heroku-settings.png)
-5. Click reveal config vars and add the key PORT and the value 8000 to the ![key and port fields](assets/images/heroku-config-var.PNG)
-6. Click "Add buildpack" and select Python and "Save Changes".
-![](assets/images/add-buildpack.PNG)
-![](assets/images/add-buildpack-python.PNG)
-7. Click "Add buildpack again and select Nodejs and "Save changes
-![](assets/images/add-buildpack-nodejs.PNG)
+1. Login to [Heroku](heroku.com).
+2. Click "Create a New App" on the Heroku dashboard.
+3. Enter a unique app name and select a region.
+4. Click the ![settings tab](assets/images/heroku-settings.png).
+5. Click "Reveal Config Vars" and add the key PORT and the value 8000 to the 
+![key and port fields](assets/images/heroku-config-var.PNG)
+6. Click "Add buildpack" and select "Python" and select "Save Changes".
+![Buildpack](assets/images/add-buildpack.PNG)
+![Buildpack-Python](assets/images/add-buildpack-python.PNG)
+7. Click "Add buildpack" again and select "Nodejs" and select "Save changes".
+![Buildpack-Nodejs](assets/images/add-buildpack-nodejs.PNG)
 Note the order here is important.
-8. Click the Deploy tab and select GitHub as the deployment method and click connect to Github
-![](assets/images/heroku-deployment-method.PNG)
-9. Enter the Github repository by name and click search
-10. Once the repository is shown click connect
-11. Click deploy branch and wait for the message to appear stating ![](assets/images/heroku-app-deployed.PNG)
-12. Click to view button to navigate to the deployed link
+8. Click the Deploy tab and select GitHub as the deployment method and click "Connect to Github"
+![Deployment Method](assets/images/heroku-deployment-method.PNG)
+9. Enter the Github repository by name and click "search".
+10. Once the repository is shown click "connect".
+11. Click "deploy branch" and wait for the message to appear stating 
+![Deploy branch](assets/images/heroku-app-deployed.PNG)
+12. Click the "view" button to navigate to the deployed link.
 
 
 ## Credits
@@ -116,14 +128,18 @@ The code used in this (Youtube)[https://www.youtube.com/] tutorial was adapted t
 This website was used to add a design feature of a battleship image to the welcome message at the beginning of the game. The image is displayed using several print statements.
 
 [Portfolio Project 3 Scope](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware/b3378fc1159e43e3b70916fdefdfae51/605f34e006594dc4ae19f5e60ec75e2e/)
-This video tutorial from the [Code Institute website](https://codeinstitute.net/ie/) was used and adapted to include the board class to the Battleships code to set the number of ships, the board type and provide methods to add ships to the player and computer boards and record the guesses made.
+This video tutorial from the [Code Institute website](https://codeinstitute.net/ie/) was used and adapted to incorporate the Board class into the Battleships code to set the number of ships, the board type and provide a method to add ships to the hidden board.
 
-[How to Code Battleship in Python](https://www.google.com/search?q=how+to+add+ships+to+board+battleships+python&sxsrf=APwXEdfYaaektAri62hXOq5nohy7G7VoYg%3A1682935020230&source=hp&ei=7IxPZP7wC4nEgAbMoarwBg&iflsig=AOEireoAAAAAZE-a_Ii9CrjCHiZW0YvW6-WAWqcZxz-l&ved=0ahUKEwj-lrzA7dP-AhUJIsAKHcyQCm4Q4dUDCAk&uact=5&oq=how+to+add+ships+to+board+battleships+python&gs_lcp=Cgdnd3Mtd2l6EAMyCAghEBYQHhAdOgsIABCABBCxAxCDAToICAAQgAQQsQM6DgguEIAEELEDEMcBENEDOgsILhCABBDHARDRAzoLCC4QigUQsQMQgwE6BQguEIAEOgsIABCKBRCxAxCDAToFCAAQgAQ6CAguEIoFELEDOg4ILhCKBRCxAxDHARCvAToLCC4QgAQQsQMQ1AI6CAguEIAEENQCOggIABCKBRCGAzoFCCEQoAE6CgghEBYQHhAPEB06BggAEBYQHjoHCCEQoAEQCjoECCEQClAAWOM-YNxAaABwAHgBgAHCBYgBqEqSAQ80LjIyLjExLjIuMi4yLjGYAQCgAQE&sclient=gws-wiz#fpstate=ive&vld=cid:3353d00c,vid:tF1WRCrd_HQ,st:377)
-This [Youtube](youtube.com) tutorial was used and adapted to incorporate the count number of hit ships function into the Batteships game.
+[How to Code Battleship in Python](https://www.youtube.com/watch?v=tF1WRCrd_HQ)
+The get ships location function in this [Youtube](youtube.com) tutorial was adapted to code the make guess function and incorporate validation checks for the user input.
 
 [Python Intermediate Project Assignement](https://www.youtube.com/watch?v=MgJBgnsDcF0&t=534s)
-This [Youtube](https://www.youtube.com/) tutorial was watched for inspiration on the different designs a Battleships game can encorporate.
+This [Youtube](https://www.youtube.com/) tutorial was watched for inspiration on the different designs a Battleships game can incorporate and methods that could be introduced to increase the complexity of a battleships game.
 
 ### Content
+- All content was written by the developer.
+- The design of a multi grid size battleship game was inspired by the Code Institute Scope video tutorial, the Knowledge Mavens Youtube tutorial and Python Ninja's battleship game.
+- The battleship art displayed in the welcome message was adapted from asciiart.co.uk.
 
 ### Acknowledgements
+- Thank you to my partner, friends and family for their support and encouragement throughout the project and for testing the deployed game on their mobile devices and providing feedback.

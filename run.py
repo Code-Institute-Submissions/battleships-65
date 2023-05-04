@@ -62,7 +62,7 @@ def display_board(game_board):
     The amount of numbers and letters displayed,
     depend on the grid size chosen by the player
     """
-    # The display_board function code was adapted from the print_board function from the How to Code Battleship in python tutorial
+    # The display_board function code was adapted from Python Ninja's Youtube tutorial
     number_line = "   "
     for index in range(board_size):
         number_line += f"{index+1} "
