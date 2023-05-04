@@ -4,7 +4,7 @@ This game is a single player game designed for users to compete against the comp
 ## User Experience
 ### User Stories
 - First time visitor goals
-1. I want to play against the computer in a game of battleships
+1. I want to play a simple game of battleships with clear instructions
 2. I want to see my score displayed as I play through the game
 3. I want the ability to chose the size of the grid and how many battleships
 
@@ -61,13 +61,20 @@ A game over screen appears whenever a player sinks the required number of battle
 - Heroku was used for deploying the website.
 
 ## Future Features
-- I would like to include a variable for the number of missiles the player has to sink the computer's ships and provide a random variable to change the size of the hidden ships on the board.
+- I would like to provide users with the opportunity for choosing the number of missiles/turns and the number of ships.
+- I would like to have make the game a two player game where the first player to sink the generated ships would win.
+- I would like to provide a random variable to change the size of the hidden ships on the board and include the ships' orientation.
 
 ## Validation & Testing
 [PEP8 Python Validator](https://pep8ci.herokuapp.com/)
+When the code was first tested in the validator errors appeared due to the length of lines.
+![]()
 
 ## Testing User Stories
 - First Time Visitors
+- The print messages provided clear instruction however I feel a displayed legend would have been useful and the number of ships should have been made clear to the player before the player guessed positions.
+- There was a turn counter incorporated into the game, I would have preferred if a score counter was displayed and incremented each time I hit a battleship.
+- I was able to choose the grid size at the beginning of the game however I would have enjoyed choosing the number of battleships.
 
 ## Testing on Browsers and Devices
 
