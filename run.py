@@ -108,6 +108,12 @@ def make_guess():
     row_guess = input("Your row choice (letter): \n").upper()
     valid_numbers = [str(num+1) for num in range(board_size)]
     print(valid_numbers)
+    if board_size == 5:
+        valid_letters = "ABCDE" 
+    elif board_size == 8:
+        valid_letters = "ABCDEFGH"
+    else:
+        valid_letters = "ABCDEFGHIJ"
     try:
         while row_guess not in "ABCDEFGHIJ":
             print("Please enter a valid row")
