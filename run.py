@@ -6,7 +6,8 @@ How the game works:
 3. The number of battleships varies depending on the grid size
 4. The player choose a row and column to choose to shoot
 5. For every shot that hits or misses this will be displayed in the grid
-6. If the player finds all the hidden ships within the set turns the players wins
+6. If the player finds all the hidden ships within the set turns
+the players wins
 
 Legend:
 1. "-" = Water or empty space
@@ -22,7 +23,18 @@ player_name = ""
 game_state = "NAME_CHOICE"
 hidden_board = []
 guess_board = []
-letters_to_numbers = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9}
+letters_to_numbers = {
+    "A": 0,
+    "B": 1,
+    "C": 2,
+    "D": 3,
+    "E": 4,
+    "F": 5,
+    "G": 6,
+    "H": 7,
+    "I": 8,
+    "J": 9
+}
 
 
 def main():
@@ -41,7 +53,8 @@ class Board:
     Sets the number of ships, the board name and board type
     The class has a method for adding ships
     """
-    # The Board class was adapted from the Code Institute Project 3 Scope tutorial
+    # The Board class was adapted from the Code Institute
+    # Project 3 Scope tutorial
     def __init__(self, size, num_ships, name, type):
         self.size = size
         self.board = [["-" for x in range(size)] for y in range(size)]
@@ -62,7 +75,8 @@ def display_board(game_board):
     The amount of numbers and letters displayed,
     depend on the grid size chosen by the player
     """
-    # The display_board function code was adapted from Python Ninja's Youtube tutorial
+    # The display_board function code was adapted from
+    # Python Ninja's Youtube tutorial
     number_line = "   "
     for index in range(board_size):
         number_line += f"{index+1} "
@@ -107,9 +121,8 @@ def make_guess():
     print("Please make a row choice (letter)")
     row_guess = input("Your row choice (letter): \n").upper()
     valid_numbers = [str(num+1) for num in range(board_size)]
-    print(valid_numbers)
     if board_size == 5:
-        valid_letters = "ABCDE" 
+        valid_letters = "ABCDE"
     elif board_size == 8:
         valid_letters = "ABCDEFGH"
     else:
@@ -124,7 +137,7 @@ def make_guess():
             print("Please enter a valid column")
             column_guess = input("Your column guess (number): \n")
     except ValueError as e:
-        print(f"{e} Please enter a valid choice. Please try again\n")   
+        print(f"{e} Please enter a valid choice. Please try again\n")
     return letters_to_numbers[row_guess], int(column_guess) - 1
 
 
@@ -161,7 +174,8 @@ def new_game():
             num_ships -= 1
             ship_sunk = True
             for row in guess_board.board:
-                if ship_sunk and guess_board.board[guess_row][guess_col] in row:
+                if ship_sunk and \
+                     guess_board.board[guess_row][guess_col] in row:
                     ship_sunk = False
                     break
                 if ship_sunk:
@@ -175,8 +189,8 @@ def new_game():
             print(f"Congratulations, you have sunk all ships in {turns} turns")
             break
         elif turns == 0:
-            print(f"Game Over. You have used all {turns} turns.")
-            print(f"There are still {num_ships} remaining")
+            print("Game Over. You have used all turns.")
+            print(f"There are still {num_ships} battleships remaining")
             break
 
 
@@ -202,7 +216,8 @@ def play_game():
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     global player_name
     player_name = input("Please enter your name: \n")
-    print(f"Welcome {player_name}, please choose which grid you wish to play on \n")
+    print(f"Welcome {player_name}, please choose which grid you \
+         wish to play on \n")
     print("Grid sizes are 5, 8 or 10 \n")
     user_choice = int(input("Grid size choice: \n"))
     validate_grid_size(user_choice)
@@ -218,9 +233,11 @@ def validate_grid_size(choice):
     """
     try:
         if choice not in [5, 8, 10]:
-            print(f"Choice of {choice} is invalid, please choose a valid choice\n")
+            print(f"Choice of {choice} is invalid, \
+                 please choose a valid choice\n")
         else:
-            confirm = input(f"please confirm choice of {choice}, press Y to confirm \n")
+            confirm = input(f"please confirm choice of {choice}, \
+                 press Y to confirm \n")
             if confirm in ["y", "Y", "Yes", "YES", "yes"]:
                 global board_size
                 board_size = int(choice)
