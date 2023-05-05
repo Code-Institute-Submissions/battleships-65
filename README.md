@@ -1,6 +1,10 @@
 # Battleships game
 This game is a single player game designed for users to sink a number of battleships within a limited number of turns in a game of chance. The player must sink all the computers battleships by making estimations on where the computer's battleships are located on a 5 x 5, 8 x 8 or 10 x 10 battle grid. The game provides value to users who are interested in playing online games that provide them with the opportunity of varying grid sizes for increasing difficulty.
 
+The live game can be played [here](https://battlesh1ps.herokuapp.com/)
+
+![Deployed site image](assets/images/am-i-responsive.PNG)
+
 ## User Experience
 ### User Stories
 - First time visitor goals
@@ -71,6 +75,9 @@ A congratulations screen appears whenever a player sinks the required number of 
 [Youtube](https://www.youtube.com/)
 - Youtube was used during the scoping stages of project development to gain insight into the background of the battleships game and different methods employed by developers to code a battleships game.
 
+[Am I responsive](https://ui.dev/amiresponsive)
+- This site was used to input the deployed site link and view the game on different screen sizes. A screenshot of the image was included in the Introduction of the README.
+
 ## Future Features
 - I would like to provide users with the opportunity for choosing the number of missiles/turns and the number of ships for varying levels of difficulty.
 - I would like to have made the game a two player game, where the first player to sink the genertaed battleships would win.
@@ -140,21 +147,21 @@ The search engine optimisation is slightly lower on desktop. This could be due t
 ### Solved Bugs
 ![Display Board refactoring](assets/images/display-board-grid-size-5)
 
-I had to repeat the above code twice for the different grid sizes whereas by using a board-size varaible I could refactor the code to only write this code once.
+- I had to repeat the above code for the different grid sizes whereas by using a board-size varaible I could refactor the code to only write this code once.
 
 ![Display Board refactored code](assets/images/refactor-display-board-function.PNG)
 
 ![Column code check](assets/images/column-code-check.PNG)
 
-After user testing it became apparent that with the 10 x 10 grid the user could not select the number 10 column. This was due to the make_guess validation not including 10 in the checks.
+- After user testing it became apparent that with the 10 x 10 grid the user could not select the number 10 column. This was due to the make_guess validation not including 10 in the checks.
 
 ![Invalid column](assets/images/invalid-column.PNG)
 
-Once the site was depoyed with Heroku it was evident that the checks in the make guess function were not sufficient as a user could enter letters and numbers for the larger grids on the 5 x 5 grid with this check in place:
+Once the site was depoyed with Heroku it was evident that the checks in the make_guess function were not sufficient as a user could enter letters and numbers only displayed on the larger grids for the 5 x 5 grid with this check in place:
 
 ![Make Guess Original Check](assets/images/make-guess-check.PNG) 
 
-To rectify this issue I included variables for valid numbers and valid letters and used an if else statement to specify which were valid for the varying grid sizes.
+To rectified this issue by including variables for valid numbers and valid letters and used an if else statement to specify which were letters were valid for the varying grid sizes.
 
 ![Make Guess function Improvement](assets/images/make-guess-check-improvement.PNG)
 
@@ -169,14 +176,18 @@ I had included the display function within the for loop for generating the ships
 ![Board not subscriptable](assets/images/board-not-subscriptable-code.PNG)
 
 I wanted to include a check where the player could not enter the same grid selection using the combination of the for and while loop above. As the hidden board and guess board arrays had been passed into the Board class before this code was run, this was throwing up the following error:
+
 ![Board Object not subscriptable](assets/images/board-object-not%20subscriptable-error.PNG)
+
 In the end I removed the for loop and this validation check.
 
 ![Counter](assets/images/counter-code.PNG)
-I had initially designed the game to be a computer versus player and then a two player game, I tried to use a counter and the modulo operator to switch between player boards but this was causing errors so I removed the counter and re-designed the game to be a one player game for ease of deployment and submission.
 
-IPhone device users had trouble accessing and playing the deployed Battleships game. The game was tested on the iPhone SE2 and iPhone 13.
-On iPhone when the input requests the user to enter their name and iPhone users click return the f string does not print to the user. I researched what may be the issue and it appears it a design choice enforced by iPhone that the keyboard cannot input on sites like Heroku.
+I had initially designed the game to be a two player game, I tried to use a counter and the modulo operator to switch between player boards however this was causing errors so I removed the counter and re-designed the game to be a one player game for ease of deployment and submission.
+
+During the user testing stages, iPhone device users had trouble accessing and playing the deployed Battleships game. The game was tested on the iPhone SE2 and iPhone 13.
+On iPhone when the input requests the user to enter their name and iPhone users click return the f string does not print to the user. I researched what may be the issue and it appears it is a design choice enforced by iPhone that the keyboard cannot input on sites like Heroku.
+
 ![iPhone13](assets/images/iphone13-name-error.jpg)
 
 ## Deployment
@@ -229,4 +240,6 @@ This [Youtube](https://www.youtube.com/) tutorial was watched for inspiration on
 - The battleship art displayed in the welcome message was adapted from asciiart.co.uk.
 
 ### Acknowledgements
-- Thank you to my partner, friends and family for their support and encouragement throughout the project and for testing the deployed game on their mobile devices and providing feedback.
+- Thank you to my partner Kevin, friend Frank and family for their support and encouragement throughout the project and for testing the deployed game on their mobile devices and providing feedback.
+- Thank you to my mentor and facilitator for support.
+- Thank you to student support for understanding my circumstance change and providing me with the requested extension.

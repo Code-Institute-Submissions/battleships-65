@@ -236,8 +236,8 @@ def validate_grid_size(choice):
             print(f"Choice of {choice} is invalid, \
                  please choose a valid choice\n")
         else:
-            confirm = input(f"please confirm choice of {choice}, \
-                 press Y to confirm \n")
+            print(f"please confirm choice of {choice}")
+            confirm = input("press Y to confirm \n")
             if confirm in ["y", "Y", "Yes", "YES", "yes"]:
                 global board_size
                 board_size = int(choice)
