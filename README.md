@@ -130,7 +130,10 @@ When the player took all the allocated turns the game over message appeared.
 
 ### Lighthouse Testing
 I carried out a Lighthouse test using the Google Chrome Lighthouse function for desktop and mobile.
-
+The results for both are very positive for performance on both devices.
+The search engine optimisation is slightly lower on desktop. This could be due to the naming of the site replacing the letter i with the number 1 and could be causing issue.
+![Lighthouse test mobile](assets/images/lighthouse-test-mobile.PNG)
+![lighthouse test desktop](assets/images/lighthouse-test-desktop.PNG)
 
 ## Bugs
 
