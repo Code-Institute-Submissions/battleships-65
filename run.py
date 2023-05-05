@@ -216,8 +216,8 @@ def play_game():
     print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
     global player_name
     player_name = input("Please enter your name: \n")
-    print(f"Welcome {player_name}, please choose which grid you \
-         wish to play on \n")
+    print(f"Welcome {player_name}")
+    print("please choose which grid you wish to play on \n")
     print("Grid sizes are 5, 8 or 10 \n")
     user_choice = int(input("Grid size choice: \n"))
     validate_grid_size(user_choice)
