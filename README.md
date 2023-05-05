@@ -147,6 +147,14 @@ After user testing it became apparent that with the 10 x 10 grid the user could 
 
 ![Invalid column](assets/images/invalid-column.PNG)
 
+Once the site was depoyed with Heroku it was evident that the checks in the make guess function were not sufficient as a user could enter letters and numbers for the larger grids on the 5 x 5 grid with this check in place:
+
+![Make Guess Original Check](assets/images/make-guess-check.PNG) 
+
+To rectify this issue I included variables for valid numbers and valid letters and used an if else statement to specify which were valid for the varying grid sizes.
+
+![Make Guess function Improvement](assets/images/make-guess-check-improvement.PNG)
+
 ![Ships not generating](assets/images/ships-not-generating.PNG)
 
 I had included the display function within the for loop for generating the ships in the new game function and this was throwing an error and preventing the code from running correctly.
@@ -162,7 +170,7 @@ I wanted to include a check where the player could not enter the same grid selec
 In the end I removed the for loop and this validation check.
 
 ![Counter](assets/images/counter-code.PNG)
-I had initially designed the game to be a computer versus player and then a two player game, I tried to use a counter and the modulo operator to switch between player boards but this was causing errors so I removed the counter and re designed the game to be a one player game for ease of deployment and submission.
+I had initially designed the game to be a computer versus player and then a two player game, I tried to use a counter and the modulo operator to switch between player boards but this was causing errors so I removed the counter and re-designed the game to be a one player game for ease of deployment and submission.
 
 IPhone device users had trouble accessing and playing the deployed Battleships game. The game was tested on the iPhone SE2 and iPhone 13.
 On iPhone when the input requests the user to enter their name and iPhone users click return the f string does not print to the user. I researched what may be the issue and it appears it a design choice enforced by iPhone that the keyboard cannot input on sites like Heroku.
