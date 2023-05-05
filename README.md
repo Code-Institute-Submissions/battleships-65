@@ -70,6 +70,8 @@ A congratulations screen appears whenever a player sinks the required number of 
 [PEP8 Python Validator](https://pep8ci.herokuapp.com/)
 When the code was first tested in the validator errors appeared due to the length of lines.
 ![]()
+![escape sequence error](assets/images/invalid-escape-sequence.PNG)
+This error appeared from the ASCII Art where the backslash was interpreted as an escape. this was an easy fix to include two backslashes to rectify this.
 
 ## Testing User Stories
 - First Time Visitors
@@ -94,8 +96,23 @@ I carried out a Lighthouse test using the Google Chrome Lighthouse function for 
 ## Bugs
 
 ### Solved Bugs
+![Display Board refactoring](assets/images/display-board-grid-size-5)
+I had to repeat the above code twice times for the different grid sizes whereas by using a board-size varaible I could refactor the code to only write this code once.
+![Display Board refactored code](assets/images/refactor-display-board-function.PNG)
+![Column code check](assets/images/column-code-check.PNG)
+After user testing it became apparent that with the 10 x 10 grid the user could not select the number 10 column. This was due to the make_guess validation not including 10 in the checks.
+![Invalid column](assets/images/invalid-column.PNG)
+![Ships not generating](assets/images/ships-not-generating.PNG)
+I had include the display function within the for loop for generating the ships in the new game function and this was throwing an error and preventing the code from running correctly. ![Generate ships for loop](assets/images/new-game-generate-ships.PNG)
+
+
 
 ### Unsolved Bugs
+![Board not subscriptable](assets/images/board-not-subscriptable-code.PNG)
+I wanted to include a check where the player could not enter the same grid selection using the combination of the for and while loop above. As the hidden board and guess board arrays had been passed into the Board class before this code was run, this was throwing up the error of ![Board Object not subscriptable](assets/images/board-object-not%20subscriptable-error.PNG)
+In the end I removed the for loop and this validation check.
+![Counter](assets/images/counter-code.PNG)
+I had initially designed the game to be a computer versus player and then a two player game, I tried to use a counter and the modulo operator to switch between player boards but this was causing errors so I removed the counter and re designed the game to be a one player game for ease of deployment and submission.
 iPhone device users had trouble accessing and playing the deployed Battleships game. The game was tested on the iPhone SE2 and iPhone 13.
 On iPhone when the input requests the user to enter their name and iPhone users click return the f string does not print to the user.
 ![iPhone13]()
