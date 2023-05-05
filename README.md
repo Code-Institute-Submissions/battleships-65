@@ -124,8 +124,8 @@ In the end I removed the for loop and this validation check.
 ![Counter](assets/images/counter-code.PNG)
 I had initially designed the game to be a computer versus player and then a two player game, I tried to use a counter and the modulo operator to switch between player boards but this was causing errors so I removed the counter and re designed the game to be a one player game for ease of deployment and submission.
 iPhone device users had trouble accessing and playing the deployed Battleships game. The game was tested on the iPhone SE2 and iPhone 13.
-On iPhone when the input requests the user to enter their name and iPhone users click return the f string does not print to the user.
-![iPhone13]()
+On iPhone when the input requests the user to enter their name and iPhone users click return the f string does not print to the user. I researched what may be the issue and it appears it a design choice enforced by iPhone that the keyboard cannot input on sites like Heroku.
+![iPhone13](assets/images/iphone13-name-error.jpg)
 
 ## Deployment
 Heroku was used to deploy the battleships game.

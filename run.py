@@ -106,6 +106,8 @@ def make_guess():
     # Code adapted from How to Code Battleships in Python tutorial
     print("Please make a row choice (letter)")
     row_guess = input("Your row choice (letter): \n").upper()
+    valid_numbers = [str(num+1) for num in range(board_size)]
+    print(valid_numbers)
     try:
         while row_guess not in "ABCDEFGHIJ":
             print("Please enter a valid row")
@@ -167,7 +169,8 @@ def new_game():
             print(f"Congratulations, you have sunk all ships in {turns} turns")
             break
         elif turns == 0:
-            print("Game Over. You have used all your turns")
+            print(f"Game Over. You have used all {turns} turns.")
+            print(f"There are still {num_ships} remaining")
             break
 
 
