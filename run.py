@@ -115,12 +115,12 @@ def make_guess():
     else:
         valid_letters = "ABCDEFGHIJ"
     try:
-        while row_guess not in "ABCDEFGHIJ":
+        while row_guess not in valid_letters:
             print("Please enter a valid row")
             row_guess = input("Your row choice (letter): \n").upper()
         print("Please make a column choice")
         column_guess = input("Your column guess (number): \n")
-        while column_guess not in "12345678910":
+        while column_guess not in valid_numbers:
             print("Please enter a valid column")
             column_guess = input("Your column guess (number): \n")
     except ValueError as e:
