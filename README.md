@@ -89,6 +89,16 @@ The deployed game was tested on Google Chrome and Internet Explorer.
 
 ### Device Testing
 The deployed game was tested on a variety of devices including desktop, HP laptop, Samsung Galaxy A12, A13, A22, S8, iPhone13, iPhone SE2 and Redmi 2201117TY. Family members were asked to access the deployed site, play the game and highlight any issues with the print statements, displaying the board and guesses.
+The game worked nicely on all Samsung and the Redmi devices displaying the board and allowing the player to make guesses with no issue.
+![Samsung Galaxy A13 Welcome](assets/images/samsung-galaxy-a13-welcome.jpg)
+The display board appeared well on both Samsung A13 and S8 models
+![Samsung Galaxy A13 display board](assets/images/samsung-galaxy-a13-display-board.jpg)
+![Samsung Galaxy S8 display board](assets/images/samsung-galaxy-s8-display-board.jpg)
+The user could make guesses with ease on Samsung and Redmi devices
+![Samsung S8 Make Guess](assets/images/samsung-galaxy-s8-make-guess.jpg)
+![Redmi Make Guess](assets/images/redmi-make-guess.jpg)
+When the player took all the allocated turns the game over message appeared.
+![Samsung Galxy S8 Game Over](assets/images/samsung-galaxy-s8-game-over.jpg)
 
 ### Lighthouse Testing
 I carried out a Lighthouse test using the Google Chrome Lighthouse function for desktop and mobile.
